@@ -1,52 +1,141 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <tile>Thuong Em</tile>
+    <title>Vu Duc Minh | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="header"> 
-    <div class="container">
-        <nav>
-            <img src="Images/minh.png" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class ="header-text"><p>junior CGDP student from BUV</p>
-            <h1>Hi, I'm <span>Vu Duc Minh</span></h1>
-    </div>
-</div>
-<!-----------------about---------------------->
-<div id = "about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="Images/IMG_0230.jpg">
-            </div>
-            <div class="about-col-2">
-                <h1 class="sub-title">About Me</h1>
-                    <p>Hello! I'm Vu Duc Minh, a second-year student pursuing a degree in Computer Game Design and Programming at BUV. I find joy in exploring the intricate world of game development.<br>
 
-                    <br>Academic Journey: Currently immersed in the dynamic realm of game design, I'm constantly honing my skills to create immersive and captivating gaming experiences. My academic journey has equipped me with a strong foundation in programming, problem-solving, and art <br>
-                    
-                    <br>Hobbies: Breakdance and collecting action figures, my off-screen passion, fuels my creativity and keeps me energized. Both of these hobbies can sometimes be quite useful whenever I want to do an animation movement reference for my game project<br>
-                    
-                    <br>Internship Aspirations: As I stride into my professional journey, I am eagerly seeking opportunities to deepen my knowledge of C# and Unity. My internship goal is not just about gaining hands-on experience but also about contributing to and learning from projects that push the boundaries of what is possible in the world of game development.
-                </p>
-            </div class="tab-titles">
-            <p class="tab-links">Skills</p>
-            <p class="tab-links">Experience</p>
-            <p class="tab-links">Education</p>
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="container">
+            <nav>
+                <h1 class="logo">Vu Duc Minh</h1>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero">
+                <div class="hero-text">
+                    <h2>Hello, I'm <span>Vu Duc Minh</span></h2>
+                    <p>A Game Developer specializing in Unity & C#.</p>
+                </div>
+                <div class="hero-img">
+                    <img src="Images/DucMinh.png" alt="Your Image">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm a passionate game developer with moderate proficiency in Unity and C#, continuously refining my skills to build immersive experiences. I also have basic experience in C++ and can efficiently leverage AI tools like ChatGPT to enhance problem-solving and workflow efficiency. Beyond programming, I have beginner-to-moderate skills in digital art using Ibis Paint, allowing me to experiment with game visuals.
+
+                At BUV, I’ve actively contributed to more than four group projects, strengthening my teamwork and communication abilities. Additionally, I have some marketing experience, having interned for three months at OEG, which has given me insight into branding and audience engagement. Outside of game development, I consider myself pretty athletic, bringing the same energy and discipline from sports into my creative work.</p>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <button class="skill-btn" onclick="filterProjects('all')">All</button>
+                <button class="skill-btn" onclick="filterProjects('C#')">C#</button>
+                <button class="skill-btn" onclick="filterProjects('Unity')">Unity</button>
+                <button class="skill-btn" onclick="filterProjects('Game Design')">Game Design</button>
+                <button class="skill-btn" onclick="filterProjects('Animation')">Animation</button>
+                <button class="skill-btn" onclick="filterProjects('UI/UX')">UI/UX</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- C# PROJECTS -->
+                <div class="project" data-skill="C#">
+                    <img src="Images/csharp1.png" alt="C# Project 1">
+                </div>
+                <div class="project" data-skill="C#">
+                    <img src="Images/csharp2.png" alt="C# Project 2">
+                </div>
+                <div class="project" data-skill="C#">
+                    <img src="Images/csharp3.png" alt="C# Project 3">
+                </div>
+
+                <!-- UNITY PROJECTS -->
+                <div class="project" data-skill="Unity">
+                    <img src="Images/unity1.png" alt="Unity Project 1">
+                </div>
+                <div class="project" data-skill="Unity">
+                    <img src="Images/unity2.png" alt="Unity Project 2">
+                </div>
+                <div class="project" data-skill="Unity">
+                    <img src="Images/unity3.png" alt="Unity Project 3">
+                </div>
+
+                <!-- GAME DESIGN PROJECTS -->
+                <div class="project" data-skill="Game Design">
+                    <img src="Images/gamedesign1.png" alt="Game Design Project 1">
+                </div>
+                <div class="project" data-skill="Game Design">
+                    <img src="Images/gamedesign2.png" alt="Game Design Project 2">
+                </div>
+                <div class="project" data-skill="Game Design">
+                    <img src="Images/gamedesign3.png" alt="Game Design Project 3">
+                </div>
+
+                <!-- ANIMATION PROJECTS -->
+                <div class="project" data-skill="Animation">
+                    <img src="Images/animation1.png" alt="Animation Project 1">
+                </div>
+                <div class="project" data-skill="Animation">
+                    <img src="Images/animation2.png" alt="Animation Project 2">
+                </div>
+                <div class="project" data-skill="Animation">
+                    <img src="Images/animation3.png" alt="Animation Project 3">
+                </div>
+
+                <!-- UI/UX PROJECTS -->
+                <div class="project" data-skill="UI/UX">
+                    <img src="Images/uiux1.png" alt="UI/UX Project 1">
+                </div>
+                <div class="project" data-skill="UI/UX">
+                    <img src="Images/uiux2.png" alt="UI/UX Project 2">
+                </div>
+                <div class="project" data-skill="UI/UX">
+                    <img src="Images/uiux3.png" alt="UI/UX Project 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
+            <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
+            <p>GitHub: <a href="VuDucMinh25">Your GitHub</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Vu Duc Minh. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
