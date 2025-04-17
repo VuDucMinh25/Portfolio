@@ -1,141 +1,123 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vu Duc Minh | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vu Duc Minh | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- HEADER SECTION -->
-    <header>
-        <div class="container">
-            <nav>
-                <h1 class="logo">Vu Duc Minh</h1>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hero">
-                <div class="hero-text">
-                    <h2>Hello, I'm <span>Vu Duc Minh</span></h2>
-                    <p>A Game Developer specializing in Unity & C#.</p>
-                </div>
-                <div class="hero-img">
-                    <img src="Images/DucMinh.png" alt="Your Image">
-                </div>
-            </div>
+  <!-- HEADER SECTION -->
+  <header>
+    <div class="container">
+      <nav>
+        <h1 class="logo">Vu Duc Minh</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hero">
+        <div class="hero-text">
+          <h2>Hello, I'm <span>Vu Duc Minh</span></h2>
+          <p>A Game Developer specializing in Unity & C#.</p>
         </div>
-    </header>
-
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I'm a passionate game developer with moderate proficiency in Unity and C#, continuously refining my skills to build immersive experiences. I also have basic experience in C++ and can efficiently leverage AI tools like ChatGPT to enhance problem-solving and workflow efficiency. Beyond programming, I have beginner-to-moderate skills in digital art using Ibis Paint, allowing me to experiment with game visuals.
-
-                At BUV, I’ve actively contributed to more than four group projects, strengthening my teamwork and communication abilities. Additionally, I have some marketing experience, having interned for three months at OEG, which has given me insight into branding and audience engagement. Outside of game development, I consider myself pretty athletic, bringing the same energy and discipline from sports into my creative work.</p>
+        <div class="hero-img">
+          <img src="Images/DucMinh.png" alt="Your Image" />
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <!-- SKILLS SECTION -->
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <button class="skill-btn" onclick="filterProjects('all')">All</button>
-                <button class="skill-btn" onclick="filterProjects('C#')">C#</button>
-                <button class="skill-btn" onclick="filterProjects('Unity')">Unity</button>
-                <button class="skill-btn" onclick="filterProjects('Game Design')">Game Design</button>
-                <button class="skill-btn" onclick="filterProjects('Animation')">Animation</button>
-                <button class="skill-btn" onclick="filterProjects('UI/UX')">UI/UX</button>
-            </div>
-        </div>
-    </section>
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container about-layout">
+      <div class="about-image">
+        <img src="Images/Drink.webp" alt="About Me Photo" />
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate game developer with moderate proficiency in Unity and C#, continuously refining my skills to build immersive experiences. I also have basic experience in C++ and can efficiently leverage AI tools like ChatGPT to enhance problem-solving and workflow efficiency. Beyond programming, I have beginner-to-moderate skills in digital art using Ibis Paint, allowing me to experiment with game visuals.
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- C# PROJECTS -->
-                <div class="project" data-skill="C#">
-                    <img src="Images/csharp1.png" alt="C# Project 1">
-                </div>
-                <div class="project" data-skill="C#">
-                    <img src="Images/csharp2.png" alt="C# Project 2">
-                </div>
-                <div class="project" data-skill="C#">
-                    <img src="Images/csharp3.png" alt="C# Project 3">
-                </div>
+          At BUV, I’ve actively contributed to more than four group projects, strengthening my teamwork and communication abilities. Additionally, I have some marketing experience, having interned for three months at OEG, which has given me insight into branding and audience engagement. Outside of game development, I consider myself pretty athletic, bringing the same energy and discipline from sports into my creative work.
+        </p>
+      </div>
+    </div>
+  </section>
 
-                <!-- UNITY PROJECTS -->
-                <div class="project" data-skill="Unity">
-                    <img src="Images/unity1.png" alt="Unity Project 1">
-                </div>
-                <div class="project" data-skill="Unity">
-                    <img src="Images/unity2.png" alt="Unity Project 2">
-                </div>
-                <div class="project" data-skill="Unity">
-                    <img src="Images/unity3.png" alt="Unity Project 3">
-                </div>
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <button class="skill-btn" onclick="filterProjects('all')">All</button>
+        <button class="skill-btn" onclick="filterProjects('Unity')">Unity</button>
+        <button class="skill-btn" onclick="filterProjects('Unreal')">Unreal Engine</button>
+        <button class="skill-btn" onclick="filterProjects('Ibis')">Ibis Paint</button>
+        <button class="skill-btn" onclick="filterProjects('Pixel')">Pixel Art Animation</button>
+        <button class="skill-btn" onclick="filterProjects('Level')">Level Design</button>
+      </div>
+    </div>
+  </section>
 
-                <!-- GAME DESIGN PROJECTS -->
-                <div class="project" data-skill="Game Design">
-                    <img src="Images/gamedesign1.png" alt="Game Design Project 1">
-                </div>
-                <div class="project" data-skill="Game Design">
-                    <img src="Images/gamedesign2.png" alt="Game Design Project 2">
-                </div>
-                <div class="project" data-skill="Game Design">
-                    <img src="Images/gamedesign3.png" alt="Game Design Project 3">
-                </div>
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Unity -->
+        <div class="project" data-skill="Unity"><img src="Images/unity1.png" alt="Unity Project" /></div>
+        <div class="project" data-skill="Unity"><img src="Images/unity2.png" alt="Unity Project" /></div>
 
-                <!-- ANIMATION PROJECTS -->
-                <div class="project" data-skill="Animation">
-                    <img src="Images/animation1.png" alt="Animation Project 1">
-                </div>
-                <div class="project" data-skill="Animation">
-                    <img src="Images/animation2.png" alt="Animation Project 2">
-                </div>
-                <div class="project" data-skill="Animation">
-                    <img src="Images/animation3.png" alt="Animation Project 3">
-                </div>
+        <!-- Unreal Engine -->
+        <div class="project" data-skill="Unreal"><img src="Images/unreal1.png" alt="Unreal Project" /></div>
+        <div class="project" data-skill="Unreal"><img src="Images/unreal2.png" alt="Unreal Project" /></div>
 
-                <!-- UI/UX PROJECTS -->
-                <div class="project" data-skill="UI/UX">
-                    <img src="Images/uiux1.png" alt="UI/UX Project 1">
-                </div>
-                <div class="project" data-skill="UI/UX">
-                    <img src="Images/uiux2.png" alt="UI/UX Project 2">
-                </div>
-                <div class="project" data-skill="UI/UX">
-                    <img src="Images/uiux3.png" alt="UI/UX Project 3">
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Ibis Paint -->
+        <div class="project" data-skill="Ibis"><img src="Images/ibis1.png" alt="Ibis Paint Project" /></div>
+        <div class="project" data-skill="Ibis"><img src="Images/ibis2.png" alt="Ibis Paint Project" /></div>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
-            <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
-            <p>GitHub: <a href="VuDucMinh25">Your GitHub</a></p>
-        </div>
-    </section>
+        <!-- Pixel Art Animation -->
+        <div class="project" data-skill="Pixel"><img src="Images/pixel1.png" alt="Pixel Art Project" /></div>
+        <div class="project" data-skill="Pixel"><img src="Images/pixel2.png" alt="Pixel Art Project" /></div>
 
-    <footer>
-        <p>© 2025 Vu Duc Minh. All rights reserved.</p>
-    </footer>
+        <!-- Level Design -->
+        <div class="project" data-skill="Level"><img src="Images/level1.png" alt="Level Design Project" /></div>
+        <div class="project" data-skill="Level"><img src="Images/level2.png" alt="Level Design Project" /></div>
+        <div class="project" data-skill="Level"><img src="Images/level3.png" alt="Level Design Project" /></div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
+      <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
+      <p>GitHub: <a href="https://github.com/VuDucMinh25">VuDucMinh25</a></p>
+    </div>
+  </section>
 
+  <footer>
+    <p>© 2025 Vu Duc Minh. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function filterProjects(skill) {
+      const projects = document.querySelectorAll(".project");
+      projects.forEach((project) => {
+        if (skill === "all" || project.dataset.skill === skill) {
+          project.classList.remove("blurred");
+        } else {
+          project.classList.add("blurred");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
