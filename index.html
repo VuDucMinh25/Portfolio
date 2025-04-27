@@ -5,135 +5,332 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vu Duc Minh | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* GENERAL */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background: #181818;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 80%;
+      margin: auto;
+      text-align: center;
+    }
+    
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    
+    .nav-links {
+      list-style: none;
+    }
+    
+    .nav-links li {
+      display: inline;
+      margin: 0 15px;
+    }
+    
+    .nav-links li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    
+    .nav-links li a:hover {
+      color: #ffcc00;
+    }
+    
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+    
+    .hero-text {
+      flex: 1;
+      text-align: left;
+    }
+    
+    .hero-text h2 {
+      font-size: 40px;
+      color: #ffcc00;
+    }
+    
+    .hero-text span {
+      color: #ff004f;
+    }
+    
+    .hero-img img {
+      width: 300px;
+      border-radius: 50%;
+      border: 4px solid #ffcc00;
+    }
+    
+    /* ABOUT */
+    .about-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      text-align: left;
+      margin-top: 100px;
+    }
+    
+    .about-image {
+      max-width: 300px;
+      width: 100%;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    /* SKILLS */
+    .skills-grid {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .skill-btn {
+      background: #222;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      border: 2px solid #ffcc00;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .skill-btn:hover {
+      background: #ffcc00;
+      color: black;
+    }
+    
+    /* PROJECTS */
+    .projects-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .project {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid #ffcc00;
+      transition: 0.3s;
+    }
+    
+    .project:hover img {
+      transform: scale(1.05);
+    }
+    
+    .project.blurred img {
+      filter: blur(4px);
+      opacity: 0.5;
+    }
+    
+    .project.glow img {
+      box-shadow: 0 0 20px #ffcc00;
+      transform: scale(1.05);
+    }
+    
+    /* CONTACT */
+    #contact a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    
+    #contact a:hover {
+      text-decoration: underline;
+    }
+    
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      margin-top: 20px;
+    }
+
+    /* FULLSCREEN OVERLAY for Image Preview */
+    #fullscreen-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    
+    #fullscreen-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      border: 4px solid #ffcc00;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- HEADER SECTION -->
-  <header>
-    <div class="container">
-      <nav>
-        <h1 class="logo">Vu Duc Minh</h1>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="hero">
-        <div class="hero-text">
-          <h2>Hello, I'm <span>Vu Duc Minh</span></h2>
-          <p>A Game Developer specializing in Unity & C#.</p>
-        </div>
-        <div class="hero-img">
-          <img src="Images/DucMinh.png" alt="Your Image" />
-        </div>
+<header>
+  <div class="container">
+    <nav>
+      <h1 class="logo">Vu Duc Minh</h1>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Hello, I'm <span>Vu Duc Minh</span></h2>
+        <p>A Game Developer specializing in Unity & C#.</p>
+      </div>
+      <div class="hero-img">
+        <img src="Images/DucMinh.png" alt="Your Image" />
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <div class="container about-layout">
-      <div class="about-image">
-        <img src="Images/Drink.webp" alt="About Me Photo" />
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>
-          I'm a passionate game developer with moderate proficiency in Unity and C#, continuously refining my skills to build immersive experiences. I also have basic experience in C++ and can efficiently leverage AI tools like ChatGPT to enhance problem-solving and workflow efficiency. Beyond programming, I have beginner-to-moderate skills in digital art using Ibis Paint, allowing me to experiment with game visuals.
-
-          At BUV, I’ve actively contributed to more than four group projects, strengthening my teamwork and communication abilities. Additionally, I have some marketing experience, having interned for three months at OEG, which has given me insight into branding and audience engagement. Outside of game development, I consider myself pretty athletic, bringing the same energy and discipline from sports into my creative work.
-        </p>
-      </div>
+<section id="about">
+  <div class="container about-layout">
+    <div class="about-image">
+      <img src="Images/Drink.webp" alt="About Me Photo" />
     </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section id="skills">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <button class="skill-btn" onclick="filterProjects('all')">All</button>
-        <button class="skill-btn" onclick="filterProjects('Unity')">Unity</button>
-        <button class="skill-btn" onclick="filterProjects('Unreal')">Unreal Engine</button>
-        <button class="skill-btn" onclick="filterProjects('Ibis')">Ibis Paint</button>
-        <button class="skill-btn" onclick="filterProjects('Pixel')">Pixel Art Animation</button>
-        <button class="skill-btn" onclick="filterProjects('Level')">Level Design</button>
-        <button class="skill-btn" onclick="filterProjects('Board')">Board Game Design</button>
-        <button class="skill-btn" onclick="filterProjects('Narrative')">Narrative Design</button>
-      </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I'm a passionate game developer with moderate proficiency in Unity and C#, continuously refining my skills to build immersive experiences. Beyond programming, I have beginner-to-moderate skills in digital art and basic marketing experience. Outside of game development, I'm athletic, bringing that energy into my creative work.</p>
     </div>
-  </section>
-  <div class="starfield">
-  <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <button class="skill-btn" onclick="filterProjects('all')">All</button>
+      <button class="skill-btn" onclick="filterProjects('Unity')">Unity</button>
+      <button class="skill-btn" onclick="filterProjects('Unreal')">Unreal Engine</button>
+      <button class="skill-btn" onclick="filterProjects('Design')">Design</button>
+      <button class="skill-btn" onclick="filterProjects('Board')">Board Game Design</button>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="projects-grid">
+      <div class="project" data-skill="Unity"><img src="Images/Unity1.gif" alt="Unity Project"></div>
+      <div class="project" data-skill="Unity"><img src="Images/unity2.png" alt="Unity Project"></div>
+      <div class="project" data-skill="Unity"><img src="Images/unity3.png" alt="Unity Project"></div>
+
+      <div class="project" data-skill="Unreal"><img src="Images/unreal1.png" alt="Unreal Project"></div>
+      <div class="project" data-skill="Unreal"><img src="Images/unreal2.png" alt="Unreal Project"></div>
+      <div class="project" data-skill="Unreal"><img src="Images/unreal3.png" alt="Unreal Project"></div>
+
+      <div class="project" data-skill="Design"><img src="Images/SideJet.png" alt="Design Project"></div>
+      <div class="project" data-skill="Design"><img src="Images/Ship.png" alt="Design Project"></div>
+      <div class="project" data-skill="Design"><img src="Images/TopJet.png" alt="Design Project"></div>
+
+      <div class="project" data-skill="Board"><img src="Images/1.png" alt="Board Game Project"></div>
+      <div class="project" data-skill="Board"><img src="Images/3.png" alt="Board Game Project"></div>
+      <div class="project" data-skill="Board"><img src="Images/8.png" alt="Board Game Project"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/VuDucMinh25">VuDucMinh25</a></p>
+    <p>Phone: 0941932266</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Vu Duc Minh. All rights reserved.</p>
+</footer>
+
+<!-- Fullscreen Image Overlay -->
+<div id="fullscreen-overlay" onclick="closeOverlay()">
+  <img id="fullscreen-image" src="" alt="Full Image View">
 </div>
 
-  <!-- PROJECTS SECTION -->
-  <section id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <!-- Unity -->
-        <div class="project" data-skill="Unity"><img src="Images/unity1.png" alt="Unity Project" /></div>
-        <div class="project" data-skill="Unity"><img src="Images/unity2.png" alt="Unity Project" /></div>
-
-        <!-- Unreal -->
-        <div class="project" data-skill="Unreal"><img src="Images/unreal1.png" alt="Unreal Project" /></div>
-        <div class="project" data-skill="Unreal"><img src="Images/unreal2.png" alt="Unreal Project" /></div>
-
-        <!-- Ibis Paint -->
-        <div class="project" data-skill="Ibis"><img src="Images/ibis1.png" alt="Ibis Paint Project" /></div>
-        <div class="project" data-skill="Ibis"><img src="Images/ibis2.png" alt="Ibis Paint Project" /></div>
-
-        <!-- Pixel Art -->
-        <div class="project" data-skill="Pixel"><img src="Images/pixel1.png" alt="Pixel Project" /></div>
-        <div class="project" data-skill="Pixel"><img src="Images/pixel2.png" alt="Pixel Project" /></div>
-
-        <!-- Level Design -->
-        <div class="project" data-skill="Level"><img src="Images/level1.png" alt="Level Project" /></div>
-        <div class="project" data-skill="Level"><img src="Images/level2.png" alt="Level Project" /></div>
-        <div class="project" data-skill="Level"><img src="Images/level3.png" alt="Level Project" /></div>
-
-        <!-- Board Game Design -->
-        <div class="project" data-skill="Board"><img src="Images/board1.png" alt="Board Game Project" /></div>
-        <div class="project" data-skill="Board"><img src="Images/board2.png" alt="Board Game Project" /></div>
-
-        <!-- Narrative Design -->
-        <div class="project" data-skill="Narrative"><img src="Images/narrative1.png" alt="Narrative Project" /></div>
-        <div class="project" data-skill="Narrative"><img src="Images/narrative2.png" alt="Narrative Project" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
-      <p>LinkedIn: <a href="#">Your LinkedIn</a></p>
-      <p>GitHub: <a href="https://github.com/VuDucMinh25">VuDucMinh25</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Vu Duc Minh. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function filterProjects(skill) {
-      const projects = document.querySelectorAll(".project");
-      projects.forEach((project) => {
-        if (skill === "all" || project.dataset.skill === skill) {
-          project.classList.remove("blurred");
-        } else {
-          project.classList.add("blurred");
-        }
-      });
+<script>
+function filterProjects(skill) {
+  const projects = document.querySelectorAll(".project");
+  projects.forEach((project) => {
+    project.classList.remove("glow", "blurred");
+    if (skill === "all") return;
+    if (project.dataset.skill !== skill) {
+      project.classList.add("blurred");
+    } else {
+      project.classList.add("glow");
     }
-  </script>
+  });
+}
+
+// Image Enlarging Script
+document.querySelectorAll(".project img").forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById("fullscreen-image").src = img.src;
+    document.getElementById("fullscreen-overlay").style.display = "flex";
+  });
+});
+
+function closeOverlay() {
+  document.getElementById("fullscreen-overlay").style.display = "none";
+}
+</script>
 
 </body>
 </html>
