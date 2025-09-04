@@ -1,342 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vu Duc Minh | Portfolio</title>
+  <meta charset="utf-8" />
+  <title>Vu Duc Minh — Game Developer (Unity/C#)</title>
+  <meta name="description" content="Portfolio of Vu Duc Minh, a game developer specializing in Unity & C#. Projects, prototypes, and design work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="Images/favicon.png" />
+  <link rel="preload" href="Images/DucMinh.png" as="image" imagesrcset="Images/DucMinh.png 1x" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* GENERAL */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    body {
-      background: #181818;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    
-    .container {
-      width: 80%;
-      margin: auto;
-      text-align: center;
-    }
-    
-    /* NAVIGATION */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-    }
-    
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ffcc00;
-    }
-    
-    .nav-links {
-      list-style: none;
-    }
-    
-    .nav-links li {
-      display: inline;
-      margin: 0 15px;
-    }
-    
-    .nav-links li a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-    
-    .nav-links li a:hover {
-      color: #ffcc00;
-    }
-    
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 50px;
-    }
-    
-    .hero-text {
-      flex: 1;
-      text-align: left;
-    }
-    
-    .hero-text h2 {
-      font-size: 40px;
-      color: #ffcc00;
-    }
-    
-    .hero-text span {
-      color: #ff004f;
-    }
-    
-    .hero-img img {
-      width: 300px;
-      border-radius: 50%;
-      border: 4px solid #ffcc00;
-    }
-    
-    /* ABOUT */
-    .about-layout {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 40px;
-      text-align: left;
-      margin-top: 100px;
-    }
-    
-    .about-image {
-      max-width: 300px;
-      width: 100%;
-    }
-    
-    .about-image img {
-      width: 100%;
-      border-radius: 15px;
-      object-fit: cover;
-    }
-    
-    .about-text {
-      flex: 1;
-    }
-    
-    /* SKILLS */
-    .skills-grid {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    
-    .skill-btn {
-      background: #222;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 18px;
-      border: 2px solid #ffcc00;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    
-    .skill-btn:hover {
-      background: #ffcc00;
-      color: black;
-    }
-    
-    /* PROJECTS */
-    .projects-grid {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    
-    .project {
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-      border: 3px solid #ffcc00;
-      transition: 0.3s;
-    }
-    
-    .project:hover img {
-      transform: scale(1.05);
-    }
-    
-    .project.blurred img {
-      filter: blur(4px);
-      opacity: 0.5;
-    }
-    
-    .project.glow img {
-      box-shadow: 0 0 20px #ffcc00;
-      transform: scale(1.05);
-    }
-    
-    /* CONTACT */
-    #contact a {
-      color: #ffcc00;
-      text-decoration: none;
-    }
-    
-    #contact a:hover {
-      text-decoration: underline;
-    }
-    
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      margin-top: 20px;
-    }
-
-    /* FULLSCREEN OVERLAY for Image Preview */
-    #fullscreen-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    
-    #fullscreen-overlay img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 15px;
-      border: 4px solid #ffcc00;
-    }
-  </style>
+  <meta property="og:title" content="Vu Duc Minh — Game Developer" />
+  <meta property="og:description" content="Unity/C# projects, prototypes, and design work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vuducminh25.github.io/Portfolio/" />
+  <meta property="og:image" content="Images/cover.webp" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vu Duc Minh",
+    "jobTitle": "Game Developer",
+    "url": "https://vuducminh25.github.io/Portfolio/",
+    "sameAs": ["https://github.com/VuDucMinh25"]
+  }
+  </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<header>
+<header class="site-header">
   <div class="container">
-    <nav>
-      <h1 class="logo">Vu Duc Minh</h1>
-      <ul class="nav-links">
+    <nav class="nav" aria-label="Primary">
+      <a href="#" class="logo" aria-label="Home">Vu Duc Minh</a>
+
+      <button class="hamburger" aria-expanded="false" aria-controls="site-menu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="site-menu" class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="btn btn-outline">Contact</a></li>
       </ul>
     </nav>
-    <div class="hero">
+
+    <section class="hero" id="home">
       <div class="hero-text">
-        <h2>Hello, I'm <span>Vu Duc Minh</span></h2>
-        <p>A Game Developer specializing in Unity & C#.</p>
+        <h1>Hello, I'm <span>Vu Duc Minh</span></h1>
+        <p>A Game Developer specializing in Unity &amp; C#.</p>
+        <div class="cta">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="CV.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download CV</a>
+        </div>
       </div>
       <div class="hero-img">
-        <img src="Images/DucMinh.png" alt="Your Image" />
+        <img src="Images/DucMinh.png" alt="Portrait of Vu Duc Minh" width="300" height="300" decoding="async" />
       </div>
-    </div>
+    </section>
   </div>
 </header>
 
-<section id="about">
-  <div class="container about-layout">
-    <div class="about-image">
-      <img src="Images/Drink.webp" alt="About Me Photo" />
-    </div>
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>I’m a game developer with experience in Unity and C#, I like crafting immersive, interactive experiences. I also have working knowledge of digital art and foundational marketing techniques, which helps me think more creatively. In my free time, I enjoy athletic activities—like jogging and breaking—which inspires my creativity, and sense of momentum in every project, also helps with dealing with stress. Outside of code and pixels, I sometimes do character sketching ideas and experimenting with new gameplay mechanics.</p>
-      <p>To me, many kids today are less likely to read books and more likely to spend their time playing video games. My goal is to harness that interest by creating games that not only entertain but also help players develop valuable skills and a positive mindset.</p>
-    </div>
-  </div>
-</section>
+<main id="main">
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container about-layout">
+      <figure class="about-image">
+        <img src="Images/Drink.webp" alt="Candid photo—Minh with a drink" loading="lazy" decoding="async" />
+      </figure>
 
-<section id="skills">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I’m a game developer with experience in Unity and C#, I like crafting immersive, interactive experiences. I also have working knowledge of digital art and foundational marketing techniques, which helps me think more creatively. In my free time, I enjoy athletic activities—like jogging and breaking—which inspires my creativity, and sense of momentum in every project, also helps with dealing with stress. Outside of code and pixels, I sometimes do character sketching ideas and experimenting with new gameplay mechanics.</p> <p>To me, many kids today are less likely to read books and more likely to spend their time playing video games. My goal is to harness that interest by creating games that not only entertain but also help players develop valuable skills and a positive mindset.
+        </p>
+       
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Skills</h2>
+
+      <div class="skills-grid" role="toolbar" aria-label="Filter projects">
+        <button class="skill-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="skill-btn" data-filter="unity" aria-pressed="false">Unity</button>
+        <button class="skill-btn" data-filter="unreal" aria-pressed="false">Unreal Engine</button>
+        <button class="skill-btn" data-filter="design" aria-pressed="false">Design</button>
+        <button class="skill-btn" data-filter="board" aria-pressed="false">Board Game Design</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="projects-grid" id="projectGrid">
+        <!-- Unity -->
+        <article class="project-card" data-tags="unity" tabindex="0"
+          data-title="Rapid Prototype"
+          data-description="My first experience with Unity2D Platformer, a rapid prototyping project I Did in 3 days">
+          <figure class="project-figure">
+            <img src="Images/Unity1.gif" alt="Unity platformer gameplay gif" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Year 1 Semester 2 Project</h3>
+          <p class="desc">A Solo Rapid Prototyping Unity 2D platformer project I did.</p>
+        </article>
+
+        <article class="project-card" data-tags="unity" tabindex="0"
+          data-title="A minor shoot em up project I did along with this website for year 3 Portfolio Module"
+          data-description="Side-view jet with thrust/drag modeling and camera damping.">
+          <figure class="project-figure">
+            <img src="Images/Unity2.gif" alt="Unity AI behavior test gif" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Jet Shooter</h3>
+          <p class="desc">Thrust/drag model for smooth 2D flight.</p>
+        </article>
+
+        <article class="project-card" data-tags="unity" tabindex="0"
+          data-title="It's on sight"
+          data-description="a 2d platformer fighting game">
+          <figure class="project-figure">
+            <img src="Images/Unity3.gif" alt="Unity jet shoot ’em up gif" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Year 3 Final project</h3>
+          <p class="desc">A simple 2 player fighting game</p>
+        </article>
+
+        <!-- Unreal -->
+        <article class="project-card" data-tags="unreal" tabindex="0"
+          data-title="Unreal Prototype A"
+          data-description="Level graybox focusing on pacing and landmarking.">
+          <figure class="project-figure">
+            <img src="Images/unreal1.png" alt="Unreal prototype screenshot A" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Unreal Prototype A</h3>
+          <p class="desc">Graybox for flow and readability.</p>
+        </article>
+
+        <article class="project-card" data-tags="unreal" tabindex="0"
+          data-title="Unreal Prototype B"
+          data-description="Material and lighting mood study.">
+          <figure class="project-figure">
+            <img src="Images/unreal2.png" alt="Unreal prototype screenshot B" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Unreal Prototype B</h3>
+          <p class="desc">Material + lighting mood pass.</p>
+        </article>
+
+        <article class="project-card" data-tags="unreal" tabindex="0"
+          data-title="Unreal Prototype C"
+          data-description="Blueprints for interactables and triggers.">
+          <figure class="project-figure">
+            <img src="Images/unreal3.png" alt="Unreal prototype screenshot C" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Unreal Prototype C</h3>
+          <p class="desc">Blueprint interactables.</p>
+        </article>
+
+        <!-- Design -->
+        <article class="project-card" data-tags="design" tabindex="0"
+          data-title="Side-View Jet Sprite"
+          data-description="Pixel art jet sheet for the shooter prototype.">
+          <figure class="project-figure">
+            <img src="Images/SideJet.png" alt="Pixel art side view jet" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Side-View Jet</h3>
+          <p class="desc">Pixel sprite for flight game.</p>
+        </article>
+
+        <article class="project-card" data-tags="design" tabindex="0"
+          data-title="Battleship Sprite"
+          data-description="Pixel art battleship used as a mid-boss.">
+          <figure class="project-figure">
+            <img src="Images/Ship.png" alt="Pixel art battleship sprite" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Battleship</h3>
+          <p class="desc">Mid-boss sprite.</p>
+        </article>
+
+        <article class="project-card" data-tags="design" tabindex="0"
+          data-title="Top-Down Jet Sprite"
+          data-description="Top-down jet for radar UI tests.">
+          <figure class="project-figure">
+            <img src="Images/TopJet.png" alt="Top-down jet sprite" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Top-Down Jet</h3>
+          <p class="desc">HUD/radar test asset.</p>
+        </article>
+
+        <!-- Board -->
+        <article class="project-card" data-tags="board" tabindex="0"
+          data-title="Board Concept A"
+          data-description="Turn order prototype and card economy test.">
+          <figure class="project-figure">
+            <img src="Images/1.png" alt="Board game concept A" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Board Concept A</h3>
+          <p class="desc">Card economy test.</p>
+        </article>
+
+        <article class="project-card" data-tags="board" tabindex="0"
+          data-title="Board Concept B"
+          data-description="Iconography readability pass.">
+          <figure class="project-figure">
+            <img src="Images/3.png" alt="Board game concept B" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Board Concept B</h3>
+          <p class="desc">Icon readability study.</p>
+        </article>
+
+        <article class="project-card" data-tags="board" tabindex="0"
+          data-title="Board Concept C"
+          data-description="Balance prototype for late-game pacing.">
+          <figure class="project-figure">
+            <img src="Images/8.png" alt="Board game concept C" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Board Concept C</h3>
+          <p class="desc">Late-game pacing test.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/VuDucMinh25" target="_blank" rel="noopener">VuDucMinh25</a></p>
+      <p>Phone: <span class="phone">0941&nbsp;932&nbsp;266</span></p>
+      <!-- Tip: consider removing phone publicly to avoid spam -->
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
   <div class="container">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <button class="skill-btn" onclick="filterProjects('all')">All</button>
-      <button class="skill-btn" onclick="filterProjects('Unity')">Unity</button>
-      <button class="skill-btn" onclick="filterProjects('Unreal')">Unreal Engine</button>
-      <button class="skill-btn" onclick="filterProjects('Design')">Design</button>
-      <button class="skill-btn" onclick="filterProjects('Board')">Board Game Design</button>
-    </div>
+    <p>© <span id="year"></span> Vu Duc Minh. All rights reserved.</p>
   </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <div class="projects-grid">
-      <div class="project" data-skill="Unity"><img src="Images/Unity1.gif" alt="Unity Project"
-       data-description="A Unity-based platformer demonstrating physics-based movement and level design.">
-</div>
-
-
-      <div class="project" data-skill="Unity"><img src="Images/Unity2.gif" alt="Unity Project"></div>
-      <div class="project" data-skill="Unity"><img src="Images/Unity3.gif" alt="Unity Project"></div>
-
-      <div class="project" data-skill="Unreal"><img src="Images/unreal1.png" alt="Unreal Project"></div>
-      <div class="project" data-skill="Unreal"><img src="Images/unreal2.png" alt="Unreal Project"></div>
-      <div class="project" data-skill="Unreal"><img src="Images/unreal3.png" alt="Unreal Project"></div>
-
-      <div class="project" data-skill="Design"><img src="Images/SideJet.png" alt="Design Project"></div>
-      <div class="project" data-skill="Design"><img src="Images/Ship.png" alt="Design Project"></div>
-      <div class="project" data-skill="Design"><img src="Images/TopJet.png" alt="Design Project"></div>
-
-      <div class="project" data-skill="Board"><img src="Images/1.png" alt="Board Game Project"></div>
-      <div class="project" data-skill="Board"><img src="Images/3.png" alt="Board Game Project"></div>
-      <div class="project" data-skill="Board"><img src="Images/8.png" alt="Board Game Project"></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/VuDucMinh25">VuDucMinh25</a></p>
-    <p>Phone: 0941932266</p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 Vu Duc Minh. All rights reserved.</p>
 </footer>
 
-<!-- Fullscreen Image Overlay -->
-<div id="fullscreen-overlay" onclick="closeOverlay()">
-  <img id="fullscreen-image" src="" alt="Full Image View">
-  <p>Suck a Pussy<P\>
+<!-- LIGHTBOX (accessible) -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" aria-hidden="true">
+  <div class="lightbox__backdrop" data-close></div>
+  <figure class="lightbox__body" role="document">
+    <button class="lightbox__close" type="button" aria-label="Close" data-close>×</button>
+    <img id="lb-img" alt="" />
+    <figcaption class="lightbox__caption">
+      <strong id="lb-title"></strong>
+      <span id="lb-desc"></span>
+    </figcaption>
+  </figure>
 </div>
 
-<script>
-function filterProjects(skill) {
-  const projects = document.querySelectorAll(".project");
-  projects.forEach((project) => {
-    project.classList.remove("glow", "blurred");
-    if (skill === "all") return;
-    if (project.dataset.skill !== skill) {
-      project.classList.add("blurred");
-    } else {
-      project.classList.add("glow");
-    }
-  });   
-}
+<script defer>
+  // --- Helpers
+  const $ = (sel, ctx=document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 
-// Image Enlarging Script
-document.querySelectorAll(".project img").forEach(img => {
-  img.addEventListener('click', () => {
-    document.getElementById("fullscreen-image").src = img.src;
-    document.getElementById("fullscreen-overlay").style.display = "flex";
+  // Year
+  $('#year').textContent = new Date().getFullYear();
+
+  // Mobile nav
+  const burger = $('.hamburger');
+  const menu = $('#site-menu');
+  burger.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
   });
-});
 
-function closeOverlay() {
-  document.getElementById("fullscreen-overlay").style.display = "none";
-}
+  // Smooth scroll for same-page anchors
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Filtering
+  const buttons = $$('.skill-btn');
+  const cards = $$('.project-card');
+  function applyFilter(tag) {
+    cards.forEach(card => {
+      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
+      card.toggleAttribute('hidden', !show);
+      card.classList.toggle('glow', show && tag !== 'all');
+    });
+  }
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed','true');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  // Lightbox
+  const lb = $('#lightbox');
+  const lbImg = $('#lb-img');
+  const lbTitle = $('#lb-title');
+  const lbDesc = $('#lb-desc');
+
+  function openLightbox(img, title, desc) {
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || title || '';
+    lbTitle.textContent = title || '';
+    lbDesc.textContent = desc || '';
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  lb.addEventListener('click', e => {
+    if (e.target.hasAttribute('data-close')) closeLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Click/keyboard to open
+  cards.forEach(card => {
+    const img = $('img', card);
+    const title = card.dataset.title;
+    const desc = card.dataset.description;
+    function handler() { openLightbox(img, title, desc); }
+    img.addEventListener('click', handler);
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+    });
+  });
 </script>
-
 </body>
 </html>
