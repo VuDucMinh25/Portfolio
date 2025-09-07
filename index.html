@@ -40,11 +40,13 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <!-- NEW: link to docs -->
+        <li><a href="#docs">Design Docs</a></li>
         <li><a href="#contact" class="btn btn-outline">Contact</a></li>
       </ul>
     </nav>
 
-    <section class="hero" id="home">
+    <section class="hero reveal" id="home">
       <div class="hero-text">
         <h1>Hello, I'm <span>Vu Duc Minh</span></h1>
         <p>A Game Developer specializing in Unity &amp; C#.</p>
@@ -62,7 +64,7 @@
 
 <main id="main">
   <!-- ABOUT -->
-  <section id="about" class="section">
+  <section id="about" class="section reveal">
     <div class="container about-layout">
       <figure class="about-image">
         <img src="Images/Drink.webp" alt="Candid photo—Minh with a drink" loading="lazy" decoding="async" />
@@ -71,16 +73,14 @@
       <div class="about-text">
         <h2>About Me</h2>
         <p>
-          I’m a game developer with experience in Unity and C#, I like crafting immersive, interactive experiences. I also have working knowledge of digital art and foundational marketing techniques, which helps me think more creatively. In my free time, I enjoy athletic activities—like jogging and breaking—which inspires my creativity, and sense of momentum in every project, also helps with dealing with stress. Outside of code and pixels, I sometimes do character sketching ideas and experimenting with new gameplay mechanics.</p> <p>To me, many kids today are less likely to read books and more likely to spend their time playing video games. My goal is to harness that interest by creating games that not only entertain but also help players develop valuable skills and a positive mindset.
-        </p>
-       
-        </p>
+          I’m a game developer with experience in Unity and C#, I like crafting immersive, interactive experiences. I also have working knowledge of digital art and foundational marketing techniques, which helps me think more creatively. In my free time, I enjoy athletic activities—like jogging and breaking—which inspires my creativity, and sense of momentum in every project, also helps with dealing with stress. Outside of code and pixels, I sometimes do character sketching ideas and experimenting with new gameplay mechanics.</p>
+        <p>To me, many kids today are less likely to read books and more likely to spend their time playing video games. My goal is to harness that interest by creating games that not only entertain but also help players develop valuable skills and a positive mindset.</p>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="section">
+  <section id="skills" class="section reveal">
     <div class="container">
       <h2>Skills</h2>
 
@@ -95,59 +95,57 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section">
+  <section id="projects" class="section reveal">
     <div class="container">
       <h2>Projects</h2>
 
       <div class="projects-grid" id="projectGrid">
+        <!-- (your existing project cards unchanged) -->
+        <!-- ... keep all the project <article> blocks you already have ... -->
         <!-- Unity -->
-        <!-- Project 1 — 2D Platformer -->
-<article class="project-card" data-tags="unity" tabindex="0"
-  data-title="2D Platformer — Rapid Prototype (Y1 S2)"
-  data-description="Mini GDD
+        <article class="project-card" data-tags="unity" tabindex="0"
+          data-title="2D Platformer — Rapid Prototype (Y1 S2)"
+          data-description="Mini GDD
 About: 2D platformer rapid prototype built in ~3 days.
 Main mechanics: enemy patrol → detect → attack; collapsing/falling platforms; checkpoints.
 Goal: pass all obstacles and defeat the boss at the end.
 Scope: 2–3 short stages and a boss arena.
 What I did: player controller tuning, enemy FSM, level graybox, boss logic.">
-  <figure class="project-figure">
-    <img src="Images/Unity1.gif" alt="2D platformer gameplay gif" loading="lazy" decoding="async" />
-  </figure>
-  <h3>Year 1 Semester 2 Project</h3>
-  <p class="desc">Solo rapid prototyping of a Unity 2D platformer.</p>
-</article>
+          <figure class="project-figure">
+            <img src="Images/Unity1.gif" alt="2D platformer gameplay gif" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Year 1 Semester 2 Project</h3>
+          <p class="desc">Solo rapid prototyping of a Unity 2D platformer.</p>
+        </article>
 
-<!-- Project 2 — Jet Shooter -->
-<article class="project-card" data-tags="unity" tabindex="0"
-  data-title="Jet Shooter — Portfolio Module (Y3)"
-  data-description="Mini GDD
+        <article class="project-card" data-tags="unity" tabindex="0"
+          data-title="Jet Shooter — Portfolio Module (Y3)"
+          data-description="Mini GDD
 About: Side-view shoot ’em up with simple campaign flow.
 Main mechanics: realistic-feeling jet movement (thrust, drag, inertia, damping) for player and enemy AI; 2 projectile types (bullets, homing missiles); 2 enemy types (jet, ship/AA).
 Goal: survive/clear enemies and reach the end of the map.
 What I did: flight model, missile lock-on, enemy AI behaviors, camera damping.">
-  <figure class="project-figure">
-    <img src="Images/Unity2.gif" alt="Jet shooter gameplay gif" loading="lazy" decoding="async" />
-  </figure>
-  <h3>Jet Shooter</h3>
-  <p class="desc">Thrust/drag flight model, bullets + homing missiles.</p>
-</article>
+          <figure class="project-figure">
+            <img src="Images/Unity2.gif" alt="Jet shooter gameplay gif" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Jet Shooter</h3>
+          <p class="desc">Thrust/drag flight model, bullets + homing missiles.</p>
+        </article>
 
-<!-- Project 3 — It’s On Sight -->
-<article class="project-card" data-tags="unity" tabindex="0"
-  data-title="It’s On Sight — Final Year Project"
-  data-description="Mini GDD
+        <article class="project-card" data-tags="unity" tabindex="0"
+          data-title="It’s On Sight — Final Year Project"
+          data-description="Mini GDD
 About: Local 2-player 2D fighting game.
 Combat: 2 attacks per character; health, damage, and stun system; hit-pause/slow-motion moments.
 Camera: advanced camera with dynamic zoom based on player distance.
 Goal: KO the opponent (rounds/match).
 What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
-  <figure class="project-figure">
-    <img src="Images/Unity3.gif" alt="2D fighting game gameplay gif" loading="lazy" decoding="async" />
-  </figure>
-  <h3>Year 3 Final Project — It’s On Sight</h3>
-  <p class="desc">2-player fighter with stun, slow-mo, and dynamic camera.</p>
-</article>
-
+          <figure class="project-figure">
+            <img src="Images/Unity3.gif" alt="2D fighting game gameplay gif" loading="lazy" decoding="async" />
+          </figure>
+          <h3>Year 3 Final Project — It’s On Sight</h3>
+          <p class="desc">2-player fighter with stun, slow-mo, and dynamic camera.</p>
+        </article>
 
         <!-- Unreal -->
         <article class="project-card" data-tags="unreal" tabindex="0"
@@ -245,8 +243,68 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     </div>
   </section>
 
+  <!-- NEW: DESIGN DOCS -->
+  <section id="docs" class="section reveal">
+    <div class="container">
+      <h2>Game Design Documents</h2>
+      <p class="docs-intro">Download my GDDs. I’ll add a short overview under each card.</p>
+
+      <div class="docs-grid">
+        <!-- Doc 1 -->
+        <article class="doc-card">
+          <div class="doc-thumb" aria-hidden="true">
+            <!-- simple inline icon -->
+            <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
+              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
+            </svg>
+            <span class="badge">PDF</span>
+          </div>
+          <h3 class="doc-title">Shift Happens — Mini GDD</h3>
+          <div class="doc-actions">
+            <!-- Replace with your actual file name in Images/ -->
+            <a class="btn btn-download" href="Images/Shift Happens.pdf" download>Download</a>
+            <a class="btn btn-outline" href="Images/Shift Happens.pdf" target="_blank" rel="noopener">View</a>
+          </div>
+          <p class="doc-desc">[Write 2–3 sentences overview here.]</p>
+        </article>
+
+        <!-- Doc 2 -->
+        <article class="doc-card">
+          <div class="doc-thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
+              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
+            </svg>
+            <span class="badge">PDF</span>
+          </div>
+          <h3 class="doc-title">2D Platformer — GDD</h3>
+          <div class="doc-actions">
+            <a class="btn btn-download" href="Images/Platformer_GDD.pdf" download>Download</a>
+            <a class="btn btn-outline" href="Images/Platformer_GDD.pdf" target="_blank" rel="noopener">View</a>
+          </div>
+          <p class="doc-desc">[Write 2–3 sentences overview here.]</p>
+        </article>
+
+        <!-- Doc 3 -->
+        <article class="doc-card">
+          <div class="doc-thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
+              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
+            </svg>
+            <span class="badge">PDF</span>
+          </div>
+          <h3 class="doc-title">Jet Shooter — GDD</h3>
+          <div class="doc-actions">
+            <a class="btn btn-download" href="Images/Jet_Shooter_GDD.pdf" download>Download</a>
+            <a class="btn btn-outline" href="Images/Jet_Shooter_GDD.pdf" target="_blank" rel="noopener">View</a>
+          </div>
+          <p class="doc-desc">[Write 2–3 sentences overview here.]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
-  <section id="contact" class="section">
+  <section id="contact" class="section reveal">
     <div class="container">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
@@ -293,7 +351,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     menu.classList.toggle('open');
   });
 
-  // Smooth scroll for same-page anchors
+  // Smooth scroll
   $$('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href');
@@ -352,7 +410,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Click/keyboard to open
+  // Click/keyboard to open project lightbox
   cards.forEach(card => {
     const img = $('img', card);
     const title = card.dataset.title;
@@ -363,6 +421,24 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
     });
   });
+
+  // --- NEW: reveal-on-scroll animations
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    $$('.reveal').forEach(el => io.observe(el));
+    $$('.project-card, .doc-card').forEach(el => {
+      el.classList.add('reveal');
+      io.observe(el);
+    });
+  }
 </script>
 </body>
 </html>
