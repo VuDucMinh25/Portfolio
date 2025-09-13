@@ -52,21 +52,27 @@
       </ul>
     </nav>
 
+    <!-- FULLSCREEN HERO -->
     <section class="hero reveal" id="home">
       <div class="hero-text">
         <h1>Hello, I'm <span>Vu Duc Minh</span></h1>
-        <p>A Game Developer specializing in Unity &amp; C#.</p>
+        <p data-edit-key="hero_intro">A Game Developer specializing in Unity &amp; C#.</p>
         <ul class="hero-badges" aria-label="Key tools">
           <li>Unity (C#)</li><li>Unreal 5</li><li>Pixel Art</li><li>Level Design</li>
         </ul>
         <div class="cta">
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="Images/CV.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download CV</a>
+          <a href="#projects" class="btn" data-magnet>View Projects</a>
+          <a href="Images/CV.pdf" class="btn btn-outline" target="_blank" rel="noopener" data-magnet>Download CV</a>
         </div>
       </div>
       <div class="hero-img">
-        <img src="Images/DucMinh.png" alt="Portrait of Vu Duc Minh" width="320" height="320" decoding="async" />
+        <img src="Images/DucMinh.png" alt="Portrait of Vu Duc Minh" width="360" height="360" decoding="async" />
       </div>
+
+      <!-- split curtains -->
+      <div class="curtain" aria-hidden="true"><span class="left"></span><span class="right"></span></div>
+
+      <button class="scroll-cue" id="scrollCue" aria-label="Scroll to About">Scroll ↓</button>
     </section>
   </div>
 </header>
@@ -81,8 +87,9 @@
 
       <div class="about-text">
         <h2>About Me</h2>
-        <p>I’m a game designer with experience in Unity and C#.</p>
-        <p>Outside of game related stuff, I'd consider myself an active person, I exercise pretty often which not only improves my physical but mental health. My goal is to make games that entertain and help players build positive skills and mindsets.</p>
+        <!-- CONTENT UNCHANGED -->
+        <p data-edit-key="about_p1">I’m a game designer with experience in Unity and C#.</p>
+        <p data-edit-key="about_p2">Outside of game related stuff, I'd consider myself an active person, I exercise pretty often which not only improves my physical but mental health. My goal is to make games that entertain and help players build positive skills and mindsets.</p>
 
         <div class="about-cards">
           <div class="about-card">
@@ -128,11 +135,15 @@
         <div class="filters">
           <input id="search" class="search" type="search" placeholder="Search projects…" aria-label="Search projects" />
         </div>
+        <div class="view-toggle" role="group" aria-label="View">
+          <button class="chip active" data-view="grid">Grid</button>
+          <button class="chip" data-view="compact">Compact</button>
+        </div>
       </div>
 
       <div class="projects-grid" id="projectGrid">
         <!-- Unity -->
-        <article class="project-card" data-tags="unity rapid-prototype platformer" tabindex="0"
+        <article class="project-card tilt" data-tags="unity rapid-prototype platformer" tabindex="0"
           data-title="2D Platformer — Rapid Prototype (Y1 S2)"
           data-description="Mini GDD
 About: 2D platformer rapid prototype built in ~3 days.
@@ -144,13 +155,13 @@ What I did: player controller tuning, enemy FSM, level graybox, boss logic.">
             <img src="Images/Unity1.gif" alt="2D platformer gameplay gif" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Year 1 Semester 2 Project</h3>
+            <h3 data-edit-key="proj1_title">Year 1 Semester 2 Project</h3>
             <ul class="tags"><li>Unity</li><li>Platformer</li><li>FSM</li></ul>
           </div>
-          <p class="desc">Solo rapid prototyping of a Unity 2D platformer.</p>
+          <p class="desc" data-edit-key="proj1_desc">Solo rapid prototyping of a Unity 2D platformer.</p>
         </article>
 
-        <article class="project-card" data-tags="unity shooter jet missiles ai" tabindex="0"
+        <article class="project-card tilt" data-tags="unity shooter jet missiles ai" tabindex="0"
           data-title="Jet Shooter — Portfolio Module (Y3)"
           data-description="Mini GDD
 About: Side-view shoot ’em up with simple campaign flow.
@@ -161,13 +172,13 @@ What I did: flight model, missile lock-on, enemy AI behaviors, camera damping.">
             <img src="Images/Unity2.gif" alt="Jet shooter gameplay gif" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Jet Shooter</h3>
+            <h3 data-edit-key="proj2_title">Jet Shooter</h3>
             <ul class="tags"><li>Unity</li><li>AI</li><li>Missiles</li></ul>
           </div>
-          <p class="desc">Thrust/drag flight model, bullets + homing missiles.</p>
+          <p class="desc" data-edit-key="proj2_desc">Thrust/drag flight model, bullets + homing missiles.</p>
         </article>
 
-        <article class="project-card" data-tags="unity fighting 2d camera" tabindex="0"
+        <article class="project-card tilt" data-tags="unity fighting 2d camera" tabindex="0"
           data-title="It’s On Sight — Final Year Project"
           data-description="Mini GDD
 About: Local 2-player 2D fighting game.
@@ -179,130 +190,130 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
             <img src="Images/Unity3.gif" alt="2D fighting game gameplay gif" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Year 3 Final Project — It’s On Sight</h3>
+            <h3 data-edit-key="proj3_title">Year 3 Final Project — It’s On Sight</h3>
             <ul class="tags"><li>Unity</li><li>Fighter</li><li>Cameras</li></ul>
           </div>
-          <p class="desc">2-player fighter with stun, slow-mo, and dynamic camera.</p>
+          <p class="desc" data-edit-key="proj3_desc">2-player fighter with stun, slow-mo, and dynamic camera.</p>
         </article>
 
         <!-- Unreal -->
-        <article class="project-card" data-tags="unreal graybox pacing" tabindex="0"
+        <article class="project-card tilt" data-tags="unreal graybox pacing" tabindex="0"
           data-title="Unreal Prototype A"
           data-description="Level graybox focusing on pacing and landmarking.">
           <figure class="project-figure">
             <img src="Images/unreal1.png" alt="Unreal prototype screenshot A" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Unreal Prototype A</h3>
+            <h3 data-edit-key="proj4_title">Unreal Prototype A</h3>
             <ul class="tags"><li>Unreal</li><li>Level Design</li></ul>
           </div>
-          <p class="desc">Graybox for flow and readability.</p>
+          <p class="desc" data-edit-key="proj4_desc">Graybox for flow and readability.</p>
         </article>
 
-        <article class="project-card" data-tags="unreal lighting materials" tabindex="0"
+        <article class="project-card tilt" data-tags="unreal lighting materials" tabindex="0"
           data-title="Unreal Prototype B"
           data-description="Material and lighting mood study.">
           <figure class="project-figure">
             <img src="Images/unreal2.png" alt="Unreal prototype screenshot B" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Unreal Prototype B</h3>
+            <h3 data-edit-key="proj5_title">Unreal Prototype B</h3>
             <ul class="tags"><li>Unreal</li><li>Lighting</li></ul>
           </div>
-          <p class="desc">Material + lighting mood pass.</p>
+          <p class="desc" data-edit-key="proj5_desc">Material + lighting mood pass.</p>
         </article>
 
-        <article class="project-card" data-tags="unreal blueprints interaction" tabindex="0"
+        <article class="project-card tilt" data-tags="unreal blueprints interaction" tabindex="0"
           data-title="Unreal Prototype C"
           data-description="Blueprints for interactables and triggers.">
           <figure class="project-figure">
             <img src="Images/unreal3.png" alt="Unreal prototype screenshot C" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Unreal Prototype C</h3>
+            <h3 data-edit-key="proj6_title">Unreal Prototype C</h3>
             <ul class="tags"><li>Unreal</li><li>Blueprints</li></ul>
           </div>
-          <p class="desc">Blueprint interactables.</p>
+          <p class="desc" data-edit-key="proj6_desc">Blueprint interactables.</p>
         </article>
 
         <!-- Design -->
-        <article class="project-card" data-tags="design pixel-art sprite" tabindex="0"
+        <article class="project-card tilt" data-tags="design pixel-art sprite" tabindex="0"
           data-title="Side-View Jet Sprite"
           data-description="Pixel art jet sheet for the shooter prototype.">
           <figure class="project-figure">
             <img src="Images/SideJet.png" alt="Pixel art side view jet" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Side-View Jet</h3>
+            <h3 data-edit-key="proj7_title">Side-View Jet</h3>
             <ul class="tags"><li>Pixel Art</li><li>Sprite</li></ul>
           </div>
-          <p class="desc">Pixel sprite for flight game.</p>
+          <p class="desc" data-edit-key="proj7_desc">Pixel sprite for flight game.</p>
         </article>
 
-        <article class="project-card" data-tags="design pixel-art boss" tabindex="0"
+        <article class="project-card tilt" data-tags="design pixel-art boss" tabindex="0"
           data-title="Battleship Sprite"
           data-description="Pixel art battleship used as a mid-boss.">
           <figure class="project-figure">
             <img src="Images/Ship.png" alt="Pixel art battleship sprite" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Battleship</h3>
+            <h3 data-edit-key="proj8_title">Battleship</h3>
             <ul class="tags"><li>Pixel Art</li><li>Boss</li></ul>
           </div>
-          <p class="desc">Mid-boss sprite.</p>
+          <p class="desc" data-edit-key="proj8_desc">Mid-boss sprite.</p>
         </article>
 
-        <article class="project-card" data-tags="design pixel-art hud" tabindex="0"
+        <article class="project-card tilt" data-tags="design pixel-art hud" tabindex="0"
           data-title="Top-Down Jet Sprite"
           data-description="Top-down jet for radar UI tests.">
           <figure class="project-figure">
             <img src="Images/TopJet.png" alt="Top-down jet sprite" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Top-Down Jet</h3>
+            <h3 data-edit-key="proj9_title">Top-Down Jet</h3>
             <ul class="tags"><li>Pixel Art</li><li>HUD</li></ul>
           </div>
-          <p class="desc">HUD/radar test asset.</p>
+          <p class="desc" data-edit-key="proj9_desc">HUD/radar test asset.</p>
         </article>
 
         <!-- Board -->
-        <article class="project-card" data-tags="board prototype economy" tabindex="0"
+        <article class="project-card tilt" data-tags="board prototype economy" tabindex="0"
           data-title="Board Concept A"
           data-description="Turn order prototype and card economy test.">
           <figure class="project-figure">
             <img src="Images/1.png" alt="Board game concept A" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Board Concept A</h3>
+            <h3 data-edit-key="proj10_title">Board Concept A</h3>
             <ul class="tags"><li>Board</li><li>Economy</li></ul>
           </div>
-          <p class="desc">Card economy test.</p>
+          <p class="desc" data-edit-key="proj10_desc">Card economy test.</p>
         </article>
 
-        <article class="project-card" data-tags="board iconography readability" tabindex="0"
+        <article class="project-card tilt" data-tags="board iconography readability" tabindex="0"
           data-title="Board Concept B"
           data-description="Iconography readability pass.">
           <figure class="project-figure">
             <img src="Images/3.png" alt="Board game concept B" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Board Concept B</h3>
+            <h3 data-edit-key="proj11_title">Board Concept B</h3>
             <ul class="tags"><li>Board</li><li>Icons</li></ul>
           </div>
-          <p class="desc">Icon readability study.</p>
+          <p class="desc" data-edit-key="proj11_desc">Icon readability study.</p>
         </article>
 
-        <article class="project-card" data-tags="board late-game pacing" tabindex="0"
+        <article class="project-card tilt" data-tags="board late-game pacing" tabindex="0"
           data-title="Board Concept C"
           data-description="Balance prototype for late-game pacing.">
           <figure class="project-figure">
             <img src="Images/8.png" alt="Board game concept C" loading="lazy" decoding="async" />
           </figure>
           <div class="card-meta">
-            <h3>Board Concept C</h3>
+            <h3 data-edit-key="proj12_title">Board Concept C</h3>
             <ul class="tags"><li>Board</li><li>Pacing</li></ul>
           </div>
-          <p class="desc">Late-game pacing test.</p>
+          <p class="desc" data-edit-key="proj12_desc">Late-game pacing test.</p>
         </article>
       </div>
     </div>
@@ -312,52 +323,52 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   <section id="docs" class="section reveal">
     <div class="container">
       <h2>Game Design Documents</h2>
-      <p class="docs-intro">Download my GDDs. I’ll add a short overview under each card.</p>
+      <p class="docs-intro" data-edit-key="docs_intro">Download my GDDs. I’ll add a short overview under each card.</p>
 
       <div class="docs-grid">
-        <article class="doc-card">
+        <article class="doc-card tilt">
           <div class="doc-thumb" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
               <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
             </svg>
             <span class="badge">PDF</span>
           </div>
-          <h3 class="doc-title">Shift Happens — Mini GDD</h3>
+          <h3 class="doc-title" data-edit-key="doc1_title">Shift Happens — Mini GDD</h3>
           <div class="doc-actions">
             <a class="btn btn-download" href="Images/Shift%20Happens.pdf" download>Download</a>
             <a class="btn btn-outline" href="Images/Shift%20Happens.pdf" target="_blank" rel="noopener">View</a>
           </div>
-          <p class="doc-desc">[2–3 sentence overview here.]</p>
+          <p class="doc-desc" data-edit-key="doc1_desc">[2–3 sentence overview here.]</p>
         </article>
 
-        <article class="doc-card">
+        <article class="doc-card tilt">
           <div class="doc-thumb" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
               <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
             </svg>
             <span class="badge">PDF</span>
           </div>
-          <h3 class="doc-title">It's On Sight — GDD</h3>
+          <h3 class="doc-title" data-edit-key="doc2_title">It's On Sight — GDD</h3>
           <div class="doc-actions">
             <a class="btn btn-download" href="Images/Individual%20Project%20Doc.pdf" download>Download</a>
             <a class="btn btn-outline" href="Images/Individual%20Project%20Doc.pdf" target="_blank" rel="noopener">View</a>
           </div>
-          <p class="doc-desc">[2–3 sentence overview here.]</p>
+          <p class="doc-desc" data-edit-key="doc2_desc">[2–3 sentence overview here.]</p>
         </article>
 
-        <article class="doc-card">
+        <article class="doc-card tilt">
           <div class="doc-thumb" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
               <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
             </svg>
             <span class="badge">PDF</span>
           </div>
-          <h3 class="doc-title">Meth Buster — Boardgame Rule Book</h3>
+          <h3 class="doc-title" data-edit-key="doc3_title">Meth Buster — Boardgame Rule Book</h3>
           <div class="doc-actions">
             <a class="btn btn-download" href="Images/Jet_Shooter_GDD.pdf" download>Download</a>
             <a class="btn btn-outline" href="Images/Jet_Shooter_GDD.pdf" target="_blank" rel="noopener">View</a>
           </div>
-          <p class="doc-desc">[2–3 sentence overview here.]</p>
+          <p class="doc-desc" data-edit-key="doc3_desc">[2–3 sentence overview here.]</p>
         </article>
       </div>
     </div>
@@ -375,19 +386,10 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
           <p>Phone: <span class="phone">0941&nbsp;932&nbsp;266</span></p>
         </div>
         <form class="contact-form" action="mailto:vudminha2@gmail.com" method="post" enctype="text/plain">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required>
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button class="btn" type="submit">Send</button>
+          <label><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+          <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+          <label><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+          <button class="btn" type="submit" data-magnet>Send</button>
           <p class="form-note">This opens your email app to send the message.</p>
         </form>
       </div>
@@ -415,6 +417,15 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
 </div>
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top">▲</button>
+
+<!-- INLINE EDITOR DOCK -->
+<div class="editor-dock" id="editorDock" role="region" aria-label="Editor controls">
+  <button id="toggleEdit">Edit</button>
+  <button id="saveEdits">Save</button>
+  <button id="resetEdits">Reset</button>
+  <button id="exportEdits">Export</button>
+  <label for="importEdits">Import<input id="importEdits" type="file" accept="application/json" hidden></label>
+</div>
 
 <script defer>
   // --- Helpers
@@ -446,6 +457,22 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     });
   });
 
+  // Scroll cue → About
+  $('#scrollCue')?.addEventListener('click', () => {
+    document.querySelector('#about')?.scrollIntoView({behavior:'smooth'});
+  });
+
+  // Hero split-away on scroll
+  const hero = $('.hero');
+  let split = false;
+  const updateHeroSplit = () => {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 10 && !split){ hero.classList.add('split-away'); split = true; }
+    if (y <= 10 && split){ hero.classList.remove('split-away'); split = false; }
+  };
+  updateHeroSplit();
+  window.addEventListener('scroll', updateHeroSplit, {passive:true});
+
   // Filtering (by skill buttons)
   const buttons = $$('.skill-btn');
   const cards = $$('.project-card');
@@ -459,8 +486,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed','true');
+      btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
       applyFilter(btn.dataset.filter);
       $('#search').value = ''; // clear search on tag click
     });
@@ -479,51 +505,40 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     buttons[0].classList.add('active'); buttons[0].setAttribute('aria-pressed','true');
   });
 
-  // Lightbox
-  const lb = $('#lightbox');
-  const lbImg = $('#lb-img');
-  const lbTitle = $('#lb-title');
-  const lbDesc = $('#lb-desc');
+  // View toggle (Grid / Compact)
+  const grid = $('#projectGrid');
+  const viewChips = $$('.chip');
+  viewChips.forEach(chip => chip.addEventListener('click', () => {
+    viewChips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    grid.classList.toggle('compact', chip.dataset.view === 'compact');
+  }));
 
+  // Lightbox
+  const lb = $('#lightbox'); const lbImg = $('#lb-img'); const lbTitle = $('#lb-title'); const lbDesc = $('#lb-desc');
   function openLightbox(img, title, desc) {
-    lbImg.src = img.src;
-    lbImg.alt = img.alt || title || '';
-    lbTitle.textContent = title || '';
-    lbDesc.textContent = desc || '';
-    lb.classList.add('open');
-    lb.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    lbImg.src = img.src; lbImg.alt = img.alt || title || '';
+    lbTitle.textContent = title || ''; lbDesc.textContent = desc || '';
+    lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
   }
-  function closeLightbox() {
-    lb.classList.remove('open');
-    lb.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
+  function closeLightbox(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
   lb.addEventListener('click', e => { if (e.target.hasAttribute('data-close')) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-  // Click/keyboard to open project lightbox
   cards.forEach(card => {
-    const img = $('img', card);
-    const title = card.dataset.title;
-    const desc = card.dataset.description;
-    function handler() { openLightbox(img, title, desc); }
+    const img = $('img', card); const title = card.dataset.title; const desc = card.dataset.description;
+    function handler(){ openLightbox(img, title, desc); }
     img.addEventListener('click', handler);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
-    });
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } });
   });
 
-  // Reveal on scroll + active nav highlight + sticky header state
+  // Reveal on scroll + active nav highlight + sticky header state + progress
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('[data-sticky]');
   const progressBar = $('#progressBar');
 
   if (!prefersReduced) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); } });
     }, { threshold: 0.14 });
     $$('.reveal').forEach(el => io.observe(el));
     $$('.project-card, .doc-card, .about-card').forEach(el => { el.classList.add('reveal'); io.observe(el); });
@@ -531,7 +546,6 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     $$('.reveal').forEach(el => el.classList.add('visible'));
   }
 
-  // Active link on scroll
   const sections = ['about','skills','projects','docs','contact'].map(id => document.getElementById(id));
   const navLinks = $$('#site-menu a[href^="#"]');
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -546,11 +560,8 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
   sections.forEach(sec => sectionObserver.observe(sec));
 
-  // Sticky header style & scroll progress
   window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > 6;
-    header.classList.toggle('is-stuck', scrolled);
-
+    header.classList.toggle('is-stuck', window.scrollY > 6);
     const h = document.documentElement;
     const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
     progressBar.style.width = pct + '%';
@@ -558,10 +569,113 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
 
   // Back to top
   const backToTop = $('#backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('show', window.scrollY > 1200);
-  });
+  window.addEventListener('scroll', () => { backToTop.classList.toggle('show', window.scrollY > 1200); });
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Tilt + Magnetic buttons (respect reduced motion)
+  if (!prefersReduced) {
+    const tiltables = $$('.tilt');
+    tiltables.forEach(card => {
+      let raf = null;
+      const onMove = (e) => {
+        const r = card.getBoundingClientRect();
+        const cx = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+        const cy = e.clientY ?? (e.touches && e.touches[0]?.clientY);
+        if (cx == null) return;
+        const x = (cx - r.left) / r.width * 2 - 1;
+        const y = (cy - r.top) / r.height * 2 - 1;
+        const rotX = (-y * 6).toFixed(2); const rotY = (x * 6).toFixed(2);
+        if (!raf) {
+          raf = requestAnimationFrame(() => { card.style.transform = `translateY(-2px) rotateX(${rotX}deg) rotateY(${rotY}deg)`; raf = null; });
+        }
+      };
+      const reset = () => { card.style.transform = ""; };
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', reset);
+      card.addEventListener('touchmove', onMove, {passive:true});
+      card.addEventListener('touchend', reset);
+    });
+
+    const magnets = $$('[data-magnet]');
+    magnets.forEach(btn => {
+      btn.style.willChange = 'transform';
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width - .5) * 6;
+        const y = ((e.clientY - r.top) / r.height - .5) * 6;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  // ---------- INLINE EDITOR ----------
+  const STORAGE_KEY = 'portfolio_inline_edits_v1';
+  const editable = $$('[data-edit-key]');
+  // store originals
+  editable.forEach(el => { el.dataset.original = el.textContent; });
+
+  function applySaved(){
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    editable.forEach(el => {
+      const k = el.dataset.editKey;
+      if (saved[k] !== undefined) el.textContent = saved[k];
+    });
+  }
+  function getSnapshot(){
+    const data = {};
+    editable.forEach(el => { data[el.dataset.editKey] = el.textContent; });
+    return data;
+  }
+
+  applySaved();
+
+  const dock = $('#editorDock');
+  const toggleBtn = $('#toggleEdit');
+  const saveBtn = $('#saveEdits');
+  const resetBtn = $('#resetEdits');
+  const exportBtn = $('#exportEdits');
+  const importInput = $('#importEdits');
+
+  let editing = false;
+  function setEditing(on){
+    editing = on;
+    document.body.classList.toggle('is-editing', editing);
+    toggleBtn.classList.toggle('active', editing);
+    editable.forEach(el => { el.contentEditable = on ? 'true' : 'false'; });
+  }
+
+  toggleBtn.addEventListener('click', () => setEditing(!editing));
+  saveBtn.addEventListener('click', () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(getSnapshot()));
+    // brief visual feedback
+    saveBtn.textContent = 'Saved ✓';
+    setTimeout(()=> saveBtn.textContent = 'Save', 900);
+  });
+  resetBtn.addEventListener('click', () => {
+    localStorage.removeItem(STORAGE_KEY);
+    editable.forEach(el => el.textContent = el.dataset.original || el.textContent);
+  });
+  exportBtn.addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(getSnapshot(), null, 2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'portfolio-content.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  importInput.addEventListener('change', async (e) => {
+    const file = e.target.files?.[0]; if (!file) return;
+    const text = await file.text();
+    try{
+      const data = JSON.parse(text);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      applySaved();
+    }catch(err){ alert('Invalid JSON'); }
+    importInput.value = '';
+  });
+
+  // ---------- end editor ----------
 </script>
 </body>
 </html>
