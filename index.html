@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Vu Duc Minh — Game Designer (Unity/C#)</title>
+  <title data-i18n="site_title">Vu Duc Minh — Game Designer (Unity/C#)</title>
   <meta name="description" content="Portfolio of Vu Duc Minh, a game designer with experience in Unity & C#. Projects and prototypes." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="Images/favicon.png" />
@@ -65,7 +65,7 @@
       repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 40px),
       repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 40px);
     mask: radial-gradient(1100px 600px at 50% -10%, #000 40%, transparent 70%) , linear-gradient(#000,#000);
-    opacity:.32; /* keep hero bright */
+    opacity:.32;
   }
   @media (max-width:900px){ body::after{ opacity:.24 } }
 
@@ -98,7 +98,7 @@
   .logo{color:var(--accent);font-weight:800;text-decoration:none;letter-spacing:.2px;font-size:clamp(18px,2vw,22px)}
   .nav-links{display:flex;align-items:center;gap:20px;list-style:none;margin:0;padding:0}
   .nav-links a{
-    color:var(--text);text-decoration:none;font-size:16px;position:relative;opacity:.9;
+    color:var(--text);text-decoration:none;font-size:16px;opacity:.9;position:relative;
     background-image:linear-gradient(var(--accent),var(--accent));
     background-repeat:no-repeat;background-size:0 2px;background-position:0 100%;
     transition:background-size .25s ease,color .2s ease,opacity .2s ease;
@@ -117,6 +117,12 @@
     }
     .nav-links.open{display:flex}
   }
+
+  /* Small chips (Lang + Admin) */
+  .chip{
+    background:#0f1012;border:1px solid #23272e;color:#fff;padding:.45rem .7rem;border-radius:999px;font-size:13px;cursor:pointer
+  }
+  .chip.active{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#000;border-color:transparent}
 
   /* Buttons */
   .btn{
@@ -198,10 +204,6 @@
   }
   .search:focus{outline:none;box-shadow:0 0 0 2px var(--accent-2)}
   .view-toggle{display:flex;gap:8px}
-  .chip{
-    background:#0f1012;border:1px solid #23272e;color:#fff;padding:.45rem .7rem;border-radius:999px;font-size:13px;cursor:pointer
-  }
-  .chip.active{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#000;border-color:transparent}
 
   /* Projects */
   .projects-grid{display:grid;gap:22px;margin-top:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -304,11 +306,25 @@
   .editor-dock button.active{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#000;border-color:transparent}
   .is-editing [data-edit-key]{outline:2px dashed var(--accent-2);outline-offset:2px;cursor:text}
 
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none !important;animation:none !important}
-    .reveal{opacity:1 !important;transform:none !important}
+  /* --- DOC ADMIN (super edit tool) --- */
+  dialog#docAdmin{
+    width:min(1000px,96vw);
+    border:1px solid #23272e;border-radius:16px;background:#0f1012;color:#fff;
+    box-shadow:var(--shadow);padding:0;overflow:hidden;
   }
+  .admin-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #23272e;background:#0c0d10}
+  .admin-body{padding:14px;max-height:70vh;overflow:auto}
+  .admin-actions{display:flex;gap:8px;flex-wrap:wrap;padding:12px 14px;border-top:1px solid #23272e;background:#0c0d10}
+  .admin-row{
+    display:grid;grid-template-columns: 1.2fr 1.2fr 1.2fr .9fr .9fr .9fr auto;
+    gap:8px;align-items:center;margin-bottom:8px;
+  }
+  .admin-row input{
+    width:100%;background:#0f1012;border:1px solid #23272e;border-radius:10px;color:#fff;padding:.45rem .6rem;font-size:13px
+  }
+  .admin-row .row-buttons button{margin-right:6px}
+  .admin-help{color:var(--muted);font-size:12px;margin-top:6px}
+  .hidden{display:none !important}
   </style>
 </head>
 <body>
@@ -327,32 +343,34 @@
       </button>
 
       <ul id="site-menu" class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#docs">Design Docs</a></li>
-        <li><a href="#contact" class="btn btn-outline">Contact</a></li>
+        <li><a data-i18n="nav_about" href="#about">About</a></li>
+        <li><a data-i18n="nav_skills" href="#skills">Skills</a></li>
+        <!-- Projects before Docs (restored) -->
+        <li><a data-i18n="nav_projects" href="#projects">Projects</a></li>
+        <li><a data-i18n="nav_docs" href="#docs">Design Docs</a></li>
+        <li><a data-i18n="nav_contact" href="#contact" class="btn btn-outline">Contact</a></li>
+        <li><button id="langToggle" class="chip" aria-pressed="false" title="Tiếng Việt / English">VI</button></li>
+        <li><button id="adminToggle" class="chip hidden" aria-pressed="false" title="Open Docs Manager">Manage Docs</button></li>
       </ul>
     </nav>
 
     <!-- HERO -->
     <section class="hero reveal" id="home">
       <div class="hero-text">
-        <h1>Hello, I'm <span>Vu Duc Minh</span></h1>
-        <p data-edit-key="hero_intro">A Game Designer specializing in Unity &amp; C#.</p>
+        <h1><span data-i18n="hero_hello">Hello, I'm</span> <span>Vu Duc Minh</span></h1>
+        <p data-edit-key="hero_intro" data-i18n="hero_sub">A Game Designer specializing in Unity &amp; C#.</p>
         <ul class="hero-badges" aria-label="Key tools">
-          <li>Unity (C#)</li><li>Pixel Art</li><li>Level Design</li>
+          <li>Unity (C#)</li><li data-i18n="badge_pixel">Pixel Art</li><li data-i18n="badge_level">Level Design</li>
         </ul>
         <div class="cta">
-          <a href="#projects" class="btn" data-magnet>View Projects</a>
-          <a href="Images/CV.pdf" class="btn btn-outline" target="_blank" rel="noopener" data-magnet>Download CV</a>
+          <a href="#projects" class="btn" data-magnet data-i18n="cta_view_projects">View Projects</a>
+          <a href="Images/CV.pdf" class="btn btn-outline" target="_blank" rel="noopener" data-magnet data-i18n="cta_cv">Download CV</a>
         </div>
       </div>
       <div class="hero-img">
         <img src="Images/DucMinh.png" alt="Portrait of Vu Duc Minh" width="360" height="360" decoding="async" />
       </div>
 
-      <!-- split curtains -->
       <div class="curtain" aria-hidden="true"><span class="left"></span><span class="right"></span></div>
     </section>
   </div>
@@ -367,25 +385,25 @@
       </figure>
 
       <div class="about-text">
-        <h2>About Me</h2>
-        <p data-edit-key="about_p1">I’m a game designer with experience in Unity and C#.</p>
-        <p data-edit-key="about_p2">Outside of game related stuff, I'd consider myself an active person, I exercise pretty often which not only improves my physical but mental health. My goal is to make games that entertain and help players build positive skills and mindsets.</p>
+        <h2 data-i18n="about_title">About Me</h2>
+        <p data-edit-key="about_p1" data-i18n="about_p1">I’m a game designer with experience in Unity and C#.</p>
+        <p data-edit-key="about_p2" data-i18n="about_p2">Outside of game related stuff, I'd consider myself an active person, I exercise pretty often which not only improves my physical but mental health. My goal is to make games that entertain and help players build positive skills and mindsets.</p>
 
         <div class="about-cards">
           <div class="about-card">
-            <h3>What I bring</h3>
+            <h3 data-i18n="about_bring">What I bring</h3>
             <ul>
-              <li>Strong prototyping speed &amp; iteration</li>
-              <li>Readable C# gameplay code</li>
-              <li>Design doc writing &amp; level grayboxing</li>
+              <li data-i18n="bring_1">Strong prototyping speed &amp; iteration</li>
+              <li data-i18n="bring_2">Readable C# gameplay code</li>
+              <li data-i18n="bring_3">Design doc writing &amp; level grayboxing</li>
             </ul>
           </div>
           <div class="about-card">
-            <h3>Looking for</h3>
+            <h3 data-i18n="about_looking">Looking for</h3>
             <ul>
-              <li>Game Designer / GD Intern roles</li>
-              <li>Gameplay programming opportunities</li>
-              <li>Teams that value polish &amp; learning</li>
+              <li data-i18n="look_1">Game Designer / GD Intern roles</li>
+              <li data-i18n="look_2">Gameplay programming opportunities</li>
+              <li data-i18n="look_3">Teams that value polish &amp; learning</li>
             </ul>
           </div>
         </div>
@@ -396,12 +414,12 @@
   <!-- SKILLS -->
   <section id="skills" class="section reveal">
     <div class="container">
-      <h2>Skills</h2>
+      <h2 data-i18n="skills_title">Skills</h2>
       <div class="skills-grid" role="toolbar" aria-label="Filter projects">
-        <button class="skill-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="skill-btn active" data-filter="all" aria-pressed="true" data-i18n="skills_all">All</button>
         <button class="skill-btn" data-filter="unity" aria-pressed="false">Unity</button>
-        <button class="skill-btn" data-filter="design" aria-pressed="false">Design</button>
-        <button class="skill-btn" data-filter="board" aria-pressed="false">Board Game Design</button>
+        <button class="skill-btn" data-filter="design" aria-pressed="false" data-i18n="skills_design">Design</button>
+        <button class="skill-btn" data-filter="board" aria-pressed="false" data-i18n="skills_board">Board Game Design</button>
       </div>
     </div>
   </section>
@@ -410,18 +428,18 @@
   <section id="projects" class="section reveal">
     <div class="container">
       <div class="section-head">
-        <h2>Projects</h2>
+        <h2 data-i18n="projects_title">Projects</h2>
         <div class="filters">
           <input id="search" class="search" type="search" placeholder="Search projects…" aria-label="Search projects" />
         </div>
         <div class="view-toggle" role="group" aria-label="View">
-          <button class="chip active" data-view="grid">Grid</button>
-          <button class="chip" data-view="compact">Compact</button>
+          <button class="chip active" data-view="grid" data-i18n="view_grid">Grid</button>
+          <button class="chip" data-view="compact" data-i18n="view_compact">Compact</button>
         </div>
       </div>
 
       <div class="projects-grid" id="projectGrid">
-        <!-- Unity -->
+        <!-- your existing cards unchanged -->
         <article class="project-card tilt" data-tags="unity rapid-prototype platformer" tabindex="0"
           data-title="2D Platformer — Rapid Prototype (Y1 S2)"
           data-description="Mini GDD
@@ -475,7 +493,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
           <p class="desc" data-edit-key="proj3_desc">2-player fighter with stun, slow-mo, and dynamic camera.</p>
         </article>
 
-        <!-- Design -->
+        <!-- (design & board cards unchanged) -->
         <article class="project-card tilt" data-tags="design pixel-art sprite" tabindex="0"
           data-title="Side-View Jet Sprite"
           data-description="Pixel art jet sheet for the shooter prototype.">
@@ -515,7 +533,6 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
           <p class="desc" data-edit-key="proj9_desc">HUD/radar test asset.</p>
         </article>
 
-        <!-- Board -->
         <article class="project-card tilt" data-tags="board prototype economy" tabindex="0"
           data-title="Board Concept A"
           data-description="Turn order prototype and card economy test.">
@@ -558,57 +575,28 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     </div>
   </section>
 
-  <!-- DESIGN DOCS -->
+  <!-- DESIGN DOCS (restored below Projects) -->
   <section id="docs" class="section reveal">
     <div class="container">
-      <h2>Game Design Documents</h2>
-      <p class="docs-intro" data-edit-key="docs_intro">Download my GDDs. I’ll add a short overview under each card.</p>
+      <h2 data-i18n="docs_title">Game Design Documents</h2>
+      <p class="docs-intro" data-edit-key="docs_intro" data-i18n="docs_intro">
+        Download my GDDs. I’ll add a short overview under each card.
+      </p>
 
-      <div class="docs-grid">
-        <article class="doc-card tilt">
-          <div class="doc-thumb" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
-              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
-            </svg>
-            <span class="badge">PDF</span>
-          </div>
-          <h3 class="doc-title" data-edit-key="doc1_title">Shift Happens — Mini GDD</h3>
-          <div class="doc-actions">
-            <a class="btn btn-download" href="Images/Shift%20Happens.pdf" download>Download</a>
-            <a class="btn btn-outline" href="Images/Shift%20Happens.pdf" target="_blank" rel="noopener">View</a>
-          </div>
-          <p class="doc-desc" data-edit-key="doc1_desc">[2–3 sentence overview here.]</p>
-        </article>
+      <!-- Sort + (admin appears when enabled) -->
+      <div class="section-head" style="margin-top:8px">
+        <div></div>
+        <div class="view-toggle" role="group" aria-label="Docs Sort">
+          <button class="chip active" data-sort="new" id="sortNew" data-i18n="sort_new">Newest</button>
+          <button class="chip" data-sort="old" id="sortOld" data-i18n="sort_old">Oldest</button>
+        </div>
+      </div>
 
-        <article class="doc-card tilt">
-          <div class="doc-thumb" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
-              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
-            </svg>
-            <span class="badge">PDF</span>
-          </div>
-          <h3 class="doc-title" data-edit-key="doc2_title">It's On Sight — GDD</h3>
-          <div class="doc-actions">
-            <a class="btn btn-download" href="Images/Individual%20Project%20Doc.pdf" download>Download</a>
-            <a class="btn btn-outline" href="Images/Individual%20Project%20Doc.pdf" target="_blank" rel="noopener">View</a>
-          </div>
-          <p class="doc-desc" data-edit-key="doc2_desc">[2–3 sentence overview here.]</p>
-        </article>
+      <div class="docs-grid" id="docsGrid" data-docs-src="docs/docs.json" aria-live="polite"></div>
 
-        <article class="doc-card tilt">
-          <div class="doc-thumb" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
-              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
-            </svg>
-            <span class="badge">PDF</span>
-          </div>
-          <h3 class="doc-title" data-edit-key="doc3_title">Meth Buster — Boardgame Rule Book</h3>
-          <div class="doc-actions">
-            <a class="btn btn-download" href="Images/Jet_Shooter_GDD.pdf" download>Download</a>
-            <a class="btn btn-outline" href="Images/Jet_Shooter_GDD.pdf" target="_blank" rel="noopener">View</a>
-          </div>
-          <p class="doc-desc" data-edit-key="doc3_desc">[2–3 sentence overview here.]</p>
-        </article>
+      <!-- Hidden admin button duplicated here for convenience -->
+      <div style="margin-top:12px">
+        <button id="openAdmin" class="chip hidden" title="Alt+D also works">Open Docs Manager</button>
       </div>
     </div>
   </section>
@@ -616,14 +604,13 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   <!-- CONTACT (info only) -->
   <section id="contact" class="section reveal">
     <div class="container">
-      <h2>Contact</h2>
+      <h2 data-i18n="contact_title">Contact</h2>
       <div class="contact-grid">
         <div class="contact-card">
-          <h3>Let’s talk</h3>
-          <p>Email: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
+          <p><span data-i18n="contact_email_label">Email</span>: <a href="mailto:vudminha2@gmail.com">vudminha2@gmail.com</a></p>
           <p>GitHub: <a href="https://github.com/VuDucMinh25" target="_blank" rel="noopener">VuDucMinh25</a></p>
-          <p>Phone: <span class="phone">0941&nbsp;932&nbsp;266</span></p>
-          <p>Location: <span>Vietnam</span></p>
+          <p><span data-i18n="contact_phone_label">Phone</span>: <span class="phone">0941&nbsp;932&nbsp;266</span></p>
+          <p><span data-i18n="contact_location_label">Location</span>: <span data-i18n="contact_location_val">Vietnam</span></p>
         </div>
       </div>
     </div>
@@ -632,7 +619,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
 
 <footer class="site-footer">
   <div class="container">
-    <p>© <span id="year"></span> Vu Duc Minh. All rights reserved.</p>
+    <p>© <span id="year"></span> Vu Duc Minh. <span data-i18n="rights">All rights reserved.</span></p>
   </div>
 </footer>
 
@@ -660,8 +647,37 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   <label for="importEdits">Import<input id="importEdits" type="file" accept="application/json" hidden></label>
 </div>
 
-<script defer>
-  // --- Helpers
+<!-- DOC ADMIN (Super Edit Tool) -->
+<dialog id="docAdmin">
+  <div class="admin-head">
+    <strong>Docs Manager</strong>
+    <button id="closeAdmin" class="chip">Close</button>
+  </div>
+  <div class="admin-body">
+    <div class="admin-row" aria-hidden="true" style="opacity:.8;font-size:12px">
+      <div>Title (EN)</div>
+      <div>Title (VI)</div>
+      <div>PDF Path (e.g. Images/My File.pdf)</div>
+      <div>Description (EN)</div>
+      <div>Description (VI)</div>
+      <div>Date (YYYY-MM-DD)</div>
+      <div>Actions</div>
+    </div>
+    <div id="adminList"></div>
+    <button id="addDoc" class="chip">+ Add Doc</button>
+    <p class="admin-help">
+      <strong>Publish steps:</strong> Put PDFs in <code>Images/</code> → click <em>Export</em> to download <code>docs.json</code> → commit to <code>docs/docs.json</code> in your repo (GitHub Pages).
+    </p>
+  </div>
+  <div class="admin-actions">
+    <button id="savePreview" class="btn">Save &amp; Preview</button>
+    <button id="exportJson" class="btn btn-outline">Export docs.json</button>
+    <label class="btn btn-outline" for="importJson">Import docs.json<input id="importJson" type="file" accept="application/json" hidden></label>
+  </div>
+</dialog>
+
+<script>
+  // --- Mini helpers
   const $ = (sel, ctx=document) => ctx.querySelector(sel);
   const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 
@@ -716,7 +732,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
       buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
       btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
       applyFilter(btn.dataset.filter);
-      $('#search').value = ''; // clear search on tag click
+      $('#search').value = '';
     });
   });
 
@@ -735,7 +751,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
 
   // View toggle (Grid / Compact)
   const grid = $('#projectGrid');
-  const viewChips = $$('.chip');
+  const viewChips = $$('.view-toggle .chip');
   viewChips.forEach(chip => chip.addEventListener('click', () => {
     viewChips.forEach(c => c.classList.remove('active'));
     chip.classList.add('active');
@@ -752,12 +768,6 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   function closeLightbox(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
   lb.addEventListener('click', e => { if (e.target.hasAttribute('data-close')) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-  cards.forEach(card => {
-    const img = $('img', card); const title = card.dataset.title; const desc = card.dataset.description;
-    function handler(){ openLightbox(img, title, desc); }
-    img.addEventListener('click', handler);
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } });
-  });
 
   // Reveal on scroll + active nav highlight + sticky header state + progress
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -774,6 +784,7 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     $$('.reveal').forEach(el => el.classList.add('visible'));
   }
 
+  // NOTE: order restored to projects before docs
   const sections = ['about','skills','projects','docs','contact'].map(id => document.getElementById(id));
   const navLinks = $$('#site-menu a[href^="#"]');
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -841,7 +852,6 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
   const STORAGE_KEY = 'portfolio_inline_edits_v1';
   const editable = $$('[data-edit-key]');
   editable.forEach(el => { el.dataset.original = el.textContent; });
-
   function applySaved(){
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     editable.forEach(el => {
@@ -854,7 +864,6 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     editable.forEach(el => { data[el.dataset.editKey] = el.textContent; });
     return data;
   }
-
   applySaved();
 
   const dock = $('#editorDock');
@@ -900,12 +909,8 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
     }catch(err){ alert('Invalid JSON'); }
     importInput.value = '';
   });
-
-  // Secret editor toggle (?edit=1 or Alt+E)
   const params = new URLSearchParams(location.search);
-  if (params.get('edit') === '1') {
-    dock.style.display = 'flex';
-  }
+  if (params.get('edit') === '1') { dock.style.display = 'flex'; }
   document.addEventListener('keydown', (e) => {
     if (e.altKey && e.key.toLowerCase() === 'e') {
       const visible = getComputedStyle(dock).display !== 'none';
@@ -917,7 +922,370 @@ What I did: combat logic, stun/slow-mo timing, camera zoom system, game flow.">
       }
     }
   });
-  // ---------- end editor ----------
+  // ---------- end inline editor ----------
+
+  // ---------- I18N ----------
+  const i18n = {
+    en: {
+      site_title: "Vu Duc Minh — Game Designer (Unity/C#)",
+      nav_about: "About",
+      nav_skills: "Skills",
+      nav_docs: "Design Docs",
+      nav_projects: "Projects",
+      nav_contact: "Contact",
+      hero_hello: "Hello, I'm",
+      hero_sub: "A Game Designer specializing in Unity & C#.",
+      badge_pixel: "Pixel Art",
+      badge_level: "Level Design",
+      cta_view_projects: "View Projects",
+      cta_cv: "Download CV",
+      about_title: "About Me",
+      about_p1: "I’m a game designer with experience in Unity and C#.",
+      about_p2: "Outside of game related stuff, I'd consider myself an active person, I exercise pretty often which not only improves my physical but mental health. My goal is to make games that entertain and help players build positive skills and mindsets.",
+      about_bring: "What I bring",
+      bring_1: "Strong prototyping speed & iteration",
+      bring_2: "Readable C# gameplay code",
+      bring_3: "Design doc writing & level grayboxing",
+      about_looking: "Looking for",
+      look_1: "Game Designer / GD Intern roles",
+      look_2: "Gameplay programming opportunities",
+      look_3: "Teams that value polish & learning",
+      skills_title: "Skills",
+      skills_all: "All",
+      skills_design: "Design",
+      skills_board: "Board Game Design",
+      docs_title: "Game Design Documents",
+      docs_intro: "Download my GDDs. I’ll add a short overview under each card.",
+      sort_new: "Newest",
+      sort_old: "Oldest",
+      projects_title: "Projects",
+      view_grid: "Grid",
+      view_compact: "Compact",
+      contact_title: "Contact",
+      contact_email_label: "Email",
+      contact_phone_label: "Phone",
+      contact_location_label: "Location",
+      contact_location_val: "Vietnam",
+      rights: "All rights reserved.",
+      btn_download: "Download",
+      btn_view: "View"
+    },
+    vi: {
+      site_title: "Vũ Đức Minh — Nhà thiết kế game (Unity/C#)",
+      nav_about: "Giới thiệu",
+      nav_skills: "Kỹ năng",
+      nav_docs: "Tài liệu thiết kế",
+      nav_projects: "Dự án",
+      nav_contact: "Liên hệ",
+      hero_hello: "Xin chào, mình là",
+      hero_sub: "Nhà thiết kế game chuyên về Unity & C#.",
+      badge_pixel: "Pixel Art",
+      badge_level: "Thiết kế màn chơi",
+      cta_view_projects: "Xem Dự Án",
+      cta_cv: "Tải CV",
+      about_title: "Về mình",
+      about_p1: "Mình là nhà thiết kế game có kinh nghiệm với Unity và C#.",
+      about_p2: "Ngoài game, mình khá năng động và tập luyện thường xuyên — tốt cho thể chất lẫn tinh thần. Mục tiêu của mình là làm game vừa giải trí vừa giúp người chơi rèn luyện kỹ năng và tư duy tích cực.",
+      about_bring: "Thế mạnh",
+      bring_1: "Tốc độ prototype & lặp nhanh",
+      bring_2: "Code gameplay C# dễ đọc",
+      bring_3: "Viết GDD & dựng mức graybox",
+      about_looking: "Đang tìm",
+      look_1: "Vị trí Game Designer / Thực tập",
+      look_2: "Cơ hội lập trình gameplay",
+      look_3: "Đội ngũ đề cao polish & học hỏi",
+      skills_title: "Kỹ năng",
+      skills_all: "Tất cả",
+      skills_design: "Thiết kế",
+      skills_board: "Thiết kế board game",
+      docs_title: "Tài liệu Thiết kế Game",
+      docs_intro: "Tải GDD của mình. Mình sẽ viết tóm tắt ngắn bên dưới mỗi thẻ.",
+      sort_new: "Mới nhất",
+      sort_old: "Cũ nhất",
+      projects_title: "Dự án",
+      view_grid: "Lưới",
+      view_compact: "Gọn",
+      contact_title: "Liên hệ",
+      contact_email_label: "Email",
+      contact_phone_label: "SĐT",
+      contact_location_label: "Khu vực",
+      contact_location_val: "Việt Nam",
+      rights: "Đã đăng ký bản quyền.",
+      btn_download: "Tải về",
+      btn_view: "Xem"
+    }
+  };
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    // Update static texts
+    $$('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const t = i18n[lang]?.[key];
+      if (t !== undefined) el.textContent = t;
+    });
+    // Update doc cards (title/desc per language)
+    renderDocs(currentDocs, lang, currentSort);
+    // Toggle chip state
+    const toggle = $('#langToggle');
+    toggle.classList.toggle('active', lang === 'vi');
+    toggle.setAttribute('aria-pressed', String(lang === 'vi'));
+    toggle.textContent = lang === 'vi' ? 'EN' : 'VI';
+    localStorage.setItem('lang', lang);
+    // Update <title>
+    document.title = i18n[lang].site_title;
+  }
+  $('#langToggle').addEventListener('click', () => {
+    const next = (localStorage.getItem('lang') || 'en') === 'vi' ? 'en' : 'vi';
+    applyLang(next);
+  });
+  // ---------- end I18N ----------
+
+  // ---------- DOCS (dynamic) ----------
+  const docsGrid = $('#docsGrid');
+  let currentDocs = [];
+  let currentSort = 'new';
+
+  const fallbackDocs = [
+    {
+      "title": "Shift Happens — Mini GDD",
+      "title_vi": "Shift Happens — Mini GDD",
+      "file": "Images/Shift Happens.pdf",
+      "desc": "Small scope 2D platformer: collapsing platforms, enemy patrol/attack, boss arena.",
+      "desc_vi": "Platformer phạm vi nhỏ: nền sụp, địch tuần tra/tấn công, đấu trùm.",
+      "date": "2024-04-01"
+    },
+    {
+      "title": "It's On Sight — GDD",
+      "title_vi": "It's On Sight — GDD",
+      "file": "Images/Individual Project Doc.pdf",
+      "desc": "Local 2-player fighter: hit-pause, stun, dynamic camera zoom.",
+      "desc_vi": "Game đối kháng 2 người: hit-pause, choáng, camera zoom động.",
+      "date": "2024-05-10"
+    },
+    {
+      "title": "JetShooter — GDD",
+      "title_vi": "JetShooter — GDD",
+      "file": "Images/Portfolio Doc.pdf",
+      "desc": "Complete rulebook draft and flow for tabletop pacing tests.",
+      "desc_vi": "Bản dự thảo luật chơi và flow cho thử nghiệm nhịp độ.",
+      "date": "2024-03-15"
+    },
+    {
+      "title": "Overwatch 2 Review",
+      "title_vi": "Đánh giá Overwatch 2",
+      "file": "Images/Overwatch2 review.pdf",
+      "desc": "Critical review focusing on meta, role design, and match pacing.",
+      "desc_vi": "Bài đánh giá tập trung vào meta, thiết kế vai trò và nhịp trận.",
+      "date": "2024-06-12"
+    },
+    {
+      "title": "Year 1 Game Design Docs",
+      "title_vi": "Tài liệu Thiết kế Game Năm 1",
+      "file": "Images/ITGDesign.pdf",
+      "desc": "Early coursework docs: mechanics notes, prototypes, and reflections.",
+      "desc_vi": "Tài liệu học kỳ đầu: ghi chú cơ chế, prototype và tổng kết.",
+      "date": "2023-12-20"
+    }
+  ];
+
+  async function loadDocs(){
+    const src = docsGrid.getAttribute('data-docs-src');
+    try{
+      const res = await fetch(src, {cache:'no-store'});
+      if (!res.ok) throw new Error('fetch failed');
+      const list = await res.json();
+      currentDocs = Array.isArray(list) ? list : fallbackDocs;
+    }catch(e){
+      currentDocs = fallbackDocs;
+    }
+    renderDocs(currentDocs, localStorage.getItem('lang') || 'en', currentSort);
+  }
+
+  function sortDocs(list, sort='new'){
+    return [...list].sort((a,b)=>{
+      const da = new Date(a.date || 0).getTime();
+      const db = new Date(b.date || 0).getTime();
+      return sort === 'new' ? db - da : da - db;
+    });
+  }
+
+  function renderDocs(list, lang='en', sort='new'){
+    currentSort = sort;
+    $('#sortNew').classList.toggle('active', sort==='new');
+    $('#sortOld').classList.toggle('active', sort==='old');
+
+    const t = i18n[lang];
+    const arr = sortDocs(list, sort);
+    docsGrid.innerHTML = '';
+    arr.forEach(doc => {
+      const title = lang === 'vi' ? (doc.title_vi || doc.title) : doc.title;
+      const desc  = lang === 'vi' ? (doc.desc_vi  || doc.desc)  : doc.desc;
+      const card = document.createElement('article');
+      card.className = 'doc-card tilt';
+      card.innerHTML = `
+        <div class="doc-thumb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" role="img" aria-label="PDF icon">
+            <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM13 3.5V8h4.5" />
+          </svg>
+          <span class="badge">PDF</span>
+        </div>
+        <h3 class="doc-title">${title}</h3>
+        <div class="doc-actions">
+          <a class="btn btn-download" href="${encodeURI(doc.file)}" download>${t.btn_download}</a>
+          <a class="btn btn-outline" href="${encodeURI(doc.file)}" target="_blank" rel="noopener">${t.btn_view}</a>
+        </div>
+        <p class="doc-desc">${desc || ''}</p>
+      `;
+      docsGrid.appendChild(card);
+    });
+    // reapply tilt handlers to new cards (if not reduced motion)
+    if (!prefersReduced) attachTilt(docsGrid);
+  }
+
+  function attachTilt(scope){
+    const tiltables = $$('.tilt', scope);
+    tiltables.forEach(card => {
+      let raf = null;
+      const onMove = (e) => {
+        const r = card.getBoundingClientRect();
+        const cx = e.clientX ?? (e.touches && e.touches[0]?.clientX);
+        const cy = e.clientY ?? (e.touches && e.touches[0]?.clientY);
+        if (cx == null) return;
+        const x = (cx - r.left) / r.width * 2 - 1;
+        const y = (cy - r.top) / r.height * 2 - 1;
+        const rotX = (-y * 6).toFixed(2); const rotY = (x * 6).toFixed(2);
+        if (!raf) {
+          raf = requestAnimationFrame(() => { card.style.transform = `translateY(-2px) rotateX(${rotX}deg) rotateY(${rotY}deg)`; raf = null; });
+        }
+      };
+      const reset = () => { card.style.transform = ""; };
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', reset);
+      card.addEventListener('touchmove', onMove, {passive:true});
+      card.addEventListener('touchend', reset);
+    });
+  }
+
+  $('#sortNew').addEventListener('click', () => renderDocs(currentDocs, localStorage.getItem('lang') || 'en', 'new'));
+  $('#sortOld').addEventListener('click', () => renderDocs(currentDocs, localStorage.getItem('lang') || 'en', 'old'));
+
+  // Load docs now
+  loadDocs();
+  // ---------- end DOCS ----------
+
+  // ---------- SUPER EDIT TOOL (Docs Manager) ----------
+  const adminDialog = $('#docAdmin');
+  const adminList = $('#adminList');
+  const btnOpenAdmin = $('#openAdmin');
+  const navAdmin = $('#adminToggle');
+
+  // Admin visibility: ?admin=1 or Alt+D toggles
+  const adminEnabled = new URLSearchParams(location.search).get('admin') === '1';
+  if (adminEnabled) { btnOpenAdmin.classList.remove('hidden'); nav
+Admin.classList.remove('hidden'); }
+  navAdmin.addEventListener('click', () => adminDialog.showModal());
+  btnOpenAdmin.addEventListener('click', () => adminDialog.showModal());
+  $('#closeAdmin').addEventListener('click', () => adminDialog.close());
+
+  document.addEventListener('keydown', (e)=>{
+    if (e.altKey && e.key.toLowerCase()==='d'){
+      btnOpenAdmin.classList.toggle('hidden');
+      navAdmin.classList.toggle('hidden');
+      if (!navAdmin.classList.contains('hidden')) adminDialog.showModal();
+    }
+  });
+
+  function rowTemplate(doc, idx){
+    const escape = (s='') => String(s);
+    return `
+      <div class="admin-row" data-idx="${idx}">
+        <input aria-label="Title EN" value="${escape(doc.title||'')}" placeholder="Title EN" />
+        <input aria-label="Title VI" value="${escape(doc.title_vi||'')}" placeholder="Title VI" />
+        <input aria-label="File path" value="${escape(doc.file||'')}" placeholder="Images/My File.pdf" />
+        <input aria-label="Desc EN" value="${escape(doc.desc||'')}" placeholder="Short EN desc" />
+        <input aria-label="Desc VI" value="${escape(doc.desc_vi||'')}" placeholder="Mô tả ngắn (VI)" />
+        <input aria-label="Date" value="${escape(doc.date||'')}" placeholder="YYYY-MM-DD" />
+        <div class="row-buttons">
+          <button class="chip" data-act="up">↑</button>
+          <button class="chip" data-act="down">↓</button>
+          <button class="chip" data-act="del">Delete</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderAdminList(){
+    adminList.innerHTML = currentDocs.map((d,i)=>rowTemplate(d,i)).join('');
+    // wire actions
+    $$('.admin-row').forEach(row=>{
+      row.addEventListener('click', (e)=>{
+        const act = e.target.getAttribute('data-act');
+        if (!act) return;
+        const idx = Number(row.dataset.idx);
+        if (act==='del'){ currentDocs.splice(idx,1); renderAdminList(); return; }
+        if (act==='up' && idx>0){ [currentDocs[idx-1], currentDocs[idx]] = [currentDocs[idx], currentDocs[idx-1]]; renderAdminList(); return; }
+        if (act==='down' && idx<currentDocs.length-1){ [currentDocs[idx+1], currentDocs[idx]] = [currentDocs[idx], currentDocs[idx+1]]; renderAdminList(); return; }
+      });
+    });
+    // keep array in sync when inputs change
+    $$('.admin-row').forEach(row=>{
+      const idx = Number(row.dataset.idx);
+      const inputs = $$('input', row);
+      inputs.forEach((inp, i)=>{
+        inp.addEventListener('input', ()=>{
+          const [title, title_vi, file, desc, desc_vi, date] = inputs.map(x=>x.value);
+          currentDocs[idx] = { title, title_vi, file, desc, desc_vi, date };
+        });
+      });
+    });
+  }
+
+  $('#addDoc').addEventListener('click', ()=>{
+    currentDocs.push({ title:'', title_vi:'', file:'Images/', desc:'', desc_vi:'', date: new Date().toISOString().slice(0,10) });
+    renderAdminList();
+  });
+
+  $('#savePreview').addEventListener('click', ()=>{
+    renderDocs(currentDocs, localStorage.getItem('lang') || 'en', currentSort);
+  });
+
+  $('#exportJson').addEventListener('click', ()=>{
+    const blob = new Blob([JSON.stringify(currentDocs, null, 2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'docs.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  $('#importJson').addEventListener('change', async (e)=>{
+    const file = e.target.files?.[0]; if (!file) return;
+    try{
+      const txt = await file.text();
+      const data = JSON.parse(txt);
+      if (Array.isArray(data)){ currentDocs = data; renderAdminList(); renderDocs(currentDocs, localStorage.getItem('lang') || 'en', currentSort); }
+      else alert('docs.json should be an array');
+    }catch(err){ alert('Invalid JSON'); }
+    e.target.value = '';
+  });
+
+  // When admin opens, show current list
+  adminDialog.addEventListener('show', renderAdminList);
+  // Fallback in case 'show' isn't supported broadly
+  btnOpenAdmin.addEventListener('click', renderAdminList);
+  navAdmin.addEventListener('click', renderAdminList);
+  // ---------- end SUPER EDIT TOOL ----------
+
+  // Apply language on load
+  applyLang(localStorage.getItem('lang') || 'en');
+
+  // Hook images inside project cards to lightbox
+  $$('.project-card').forEach(card => {
+    const img = $('img', card); const title = card.dataset.title; const desc = card.dataset.description;
+    function handler(){ openLightbox(img, title, desc); }
+    img.addEventListener('click', handler);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); } });
+  });
 </script>
 </body>
 </html>

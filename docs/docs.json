@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Shift Happens — Mini GDD",
+    "title_vi": "Shift Happens — Mini GDD",
+    "file": "Images/Shift Happens.pdf",
+    "desc": "Small scope 2D platformer: collapsing platforms, enemy patrol/attack, boss arena.",
+    "desc_vi": "Platformer phạm vi nhỏ: nền sụp, địch tuần tra/tấn công, đấu trùm.",
+    "date": "2024-04-01"
+  },
+  {
+    "title": "It's On Sight — GDD",
+    "title_vi": "It's On Sight — GDD",
+    "file": "Images/Individual Project Doc.pdf",
+    "desc": "Local 2-player fighter: hit-pause, stun, dynamic camera zoom.",
+    "desc_vi": "Game đối kháng 2 người: hit-pause, choáng, camera zoom động.",
+    "date": "2024-05-10"
+  },
+  {
+    "title": "JetShooter — GDD",
+    "title_vi": "JetShooter — GDD",
+    "file": "Images/portfolio jetshooter gdd.pdf",
+    "desc": "Complete rulebook draft and flow for tabletop pacing tests.",
+    "desc_vi": "Bản dự thảo luật chơi và flow cho thử nghiệm nhịp độ.",
+    "date": "2024-03-15"
+  },
+  {
+    "title": "Overwatch 2 Review",
+    "title_vi": "cảm nhận Overwatch 2",
+    "file": "Images/Overwatch2 review.pdf",
+    "desc": "Critical review focusing on meta, role design, and match pacing.",
+    "desc_vi": "Bài đánh giá tập trung vào meta, thiết kế vai trò và nhịp trận.",
+    "date": "2024-06-12"
+  },
+  {
+    "title": "Year 1 Game Design Docs",
+    "title_vi": "Tài liệu Thiết kế Game Năm 1",
+    "file": "Images/ITGDesign.pdf",
+    "desc": "Early coursework docs: mechanics notes, prototypes, and reflections.",
+    "desc_vi": "Tài liệu học kỳ đầu: ghi chú cơ chế, prototype và tổng kết.",
+    "date": "2023-12-20"
+  }
+]
